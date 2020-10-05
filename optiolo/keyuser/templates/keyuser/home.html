@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key users Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/keyuser/css/main.css?{% now 'U' %}">
+
+    <script>
+ function myFunction() {
+ var x = document.getElementById("issue").value;
+    if (x === "Other") {
+    document.getElementById("container_content").style.display = "block";document.getElementById('content').value = '';
+    document.getElementById("recovery").style.display = "none";
+    } else if (x === "Don't remember the password") {
+    document.getElementById("recovery").style.display = "block";
+    document.getElementById("container_content").style.display = "none";
+    document.getElementById('content').value = 'not specified';
+    } else {document.getElementById("recovery").style.display = "none";
+    document.getElementById("container_content").style.display = "none";
+    document.getElementById('content').value = 'not specified';}
+}
+    </script>
+
+
+</head>
+<body>
+<div class="fontcoloring">
+{%if messages%}
+{%for message in messages%}
+<h2>{{message}}</h2>
+{%endfor%}
+{%endif%}
+</div>
+<label class="fontcoloring">Choose your problem:</label>
+<form action="" method="POST">
+    {%csrf_token%}
+
+    <h3>{{form.issue}}</h3>
+        <div id="recovery">
+            <h2 id="pleasecheck">Please check first the option for resetting the password by clicking on "Recover your password"</h2>
+            <img src="{%static 'keyuser/images/recovery_full.png'%}" id="recoveryimage">
+        </div>
+    <br>
+    <div id="container_content">
+        <label class="fontcoloring">Please describe your issue</label>
+        <h3>{{form.content}}</h3>
+    </div>
+    <br>
+    <div id="container_mail">
+        <label class="fontcoloring">Please indicate relevant email below <b>(in case of several mails - please separate with semicolon ";")</b></label>
+        <h3>{{form.email}}</h3>
+    </div>
+    <br>
+
+  <input type="submit" name="Submit">
+</form>
+
+<div id="logo">
+<img src="{%static 'keyuser/images/Philips_logo_blue_full.png'%}" id="philipsimage">
+
+</div>
+
+</body>
+</html>

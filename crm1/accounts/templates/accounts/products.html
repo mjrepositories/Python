@@ -1,0 +1,36 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Products</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Product</th>
+							<th>Category</th>
+							<th>Price</th>
+						</tr>
+						<!--braces with percent signs allows us to use python logic in templates-->
+						{%for i in products%}
+							<!--double braces allow us to access data and variables like in python logic-->
+							<tr>
+								<td>{{i.name}}</td>
+								<td>{{i.category}}</td>
+								<td>{{i.price}}</td>
+							</tr>
+
+						<!--tr is row and td is column-->
+						{%endfor%}
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+{% endblock content %}

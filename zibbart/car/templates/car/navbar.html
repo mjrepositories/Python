@@ -1,0 +1,25 @@
+{%load static%}
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+
+            <button class="button" style="vertical-align:middle"><a href="{% url 'home-page'%}" style="color: white;"><span>Strona Główna </span></a></button>
+      </li>
+
+        <li class="nav-item">
+            <button class="button" style="vertical-align:middle"><a href="{% url 'service-page'%}" style="color: white;"><span>Usługa  </span></a></button>
+        </li>
+        <li class="nav-item">
+            <button class="button" style="vertical-align:middle"><a href="{% url 'panel-page'%}" style="color: white;"><span>Panel  </span></a></button>
+
+        </li>
+         <!--<li class="nav-item">
+            <button class="button" style="vertical-align:middle"><a href="{% url 'history-page'%}" style="color: white;"><span>Cennik  </span></a></button>
+
+        </li>-->
+    </ul>
+
+      <img src="{% static 'car/images/zibbart.png'%}"/>
+  </div>
+</nav>

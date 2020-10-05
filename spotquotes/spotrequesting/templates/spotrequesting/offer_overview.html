@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register spot</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+{%include 'spotrequesting/navbar.html'%}
+<!--<table>
+    <tr>
+        <th>Currency</th>
+        <th>Pickup</th>
+        <th>Origin customs</th>
+        <th>Origin Handling</th>
+        <th>Airfreight</th>
+        <th>Destination customs</th>
+        <th>Destination handling</th>
+        <th>Delivery</th>
+        <th>DG fee</th>
+        <th>Screening fee</th>
+        <th>carrier</th>
+        <th>Spot</th>
+        <th>Modify Offer</th>
+
+    </tr>
+          {% for spot in offersubmissions %}
+    <tr>
+        <td>{{spot.currency}}</td>
+        <td>{{spot.pickup}}</td>
+        <td>{{spot.origin_cust}}</td>
+        <td>{{spot.origin_hand}}</td>
+        <td>{{spot.airfreight}}</td>
+        <td>{{spot.dest_cust}}</td>
+        <td>{{spot.dest_hand}}</td>
+        <td>{{spot.delivery}}</td>
+        <td>{{spot.dgfee}}</td>
+        <td>{{spot.screening}}</td>
+        <td>{{spot.carrier}}</td>
+        <td>{{spot.spot}}</td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'offer-update' spot.id %}">Modify</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+-->
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+        <th>Currency</th>
+        <th>Pickup</th>
+        <th>Origin customs</th>
+        <th>Origin Handling</th>
+        <th>Airfreight</th>
+        <th>Destination customs</th>
+        <th>Destination handling</th>
+        <th>Delivery</th>
+        <th>DG fee</th>
+        <th>Screening fee</th>
+        {%if 'key_user' == group|stringformat:"s" or "F&D" == group|stringformat:"s"%}
+        <th>carrier</th>
+        {%endif%}
+        <th>Spot</th>
+        {%if 'carrier' == group|stringformat:"s"%}
+        <th>Modify Offer</th>
+        <th>Delete Offer</th>
+        {%endif%}
+        <th>status</th>
+
+    </tr>
+  </thead>
+  <tbody>
+           {% for spot in offersubmissions %}
+    <tr>
+        <td>{{spot.currency}}</td>
+        <td>{{spot.pickup}}</td>
+        <td>{{spot.origin_cust}}</td>
+        <td>{{spot.origin_hand}}</td>
+        <td>{{spot.airfreight}}</td>
+        <td>{{spot.dest_cust}}</td>
+        <td>{{spot.dest_hand}}</td>
+        <td>{{spot.delivery}}</td>
+        <td>{{spot.dgfee}}</td>
+        <td>{{spot.screening}}</td>
+        {%if 'key_user' == group|stringformat:"s" or "F&D" == group|stringformat:"s"%}
+        <td>{{spot.carrier}}</td>
+        {%endif%}
+        <td>{{spot.spot}}</td>
+        {%if 'carrier' == group|stringformat:"s"%}
+        <td><a class="btn btn-sm btn-primary" href="{% url 'offer-update' spot.id %}">Modify</a></td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'offer-delete' spot.id %}">Delete</a></td>
+        {%endif%}
+        <td>{{spot.offer_status}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>

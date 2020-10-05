@@ -1,0 +1,24 @@
+{% extends "car/base.html" %}
+{% block content %}
+<div class="page-header">
+    {%if object.what_provided == "USŁUGA"%}
+<h4 style="color:white;">Czy chcesz usunąć usługę {{object.service_provided}}?</h4>
+    {%else%}
+ <h4 style="color:white;">Czy chcesz usunąć część {{object.product_provided}}?</h4>
+    {%endif%}
+</div>
+
+<form action="" method="POST">
+
+    {%csrf_token%}
+    <div>
+        <div class="col-lg-6 mb-2">
+    <button class="btn btn-lg col-lg-6 btn-danger" type="submit">Tak</button>
+            </div>
+        <div class="col-lg-6">
+    <a class="btn btn-lg col-lg-6 btn-info" href="{%url 'part-service' %}">Nie</a>
+        </div>
+    </div>
+</form>
+
+{%endblock content%}

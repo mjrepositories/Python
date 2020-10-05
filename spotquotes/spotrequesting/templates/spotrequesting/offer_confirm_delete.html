@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete offer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+{%include 'spotrequesting/navbar.html'%}
+<div class="page-header">
+<h4>Do you want to delete the offer for {{object.spot}}?</h4>
+</div>
+
+<form action="" method="POST">
+
+    {%csrf_token%}
+    <div class="row">
+        <div class="col-lg-6">
+    <button class="btn btn-lg col-lg-6 btn-danger" type="submit">Yes</button>
+            </div>
+        <div class="col-lg-6">
+    <a class="btn btn-lg col-lg-6 btn-info" href="{%url 'offer-home' %}">No</a>
+        </div>
+    </div>
+</form>
+
+
+</body>
+</html>

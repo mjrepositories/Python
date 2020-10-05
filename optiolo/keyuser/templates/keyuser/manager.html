@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key users manager</title>
+    <link rel="stylesheet" type="text/css" href= "/static/keyuser/css/main.css?{% now 'U' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Issues raised</h1>
+
+
+<table>
+    <tr>
+        <th>Issue</th>
+        <th>Description</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Key user</th>
+        <th>Register date</th>
+        <th>Update</th>
+        <th>Close</th>
+    </tr>
+            {% for call in calls%}
+        <tr>
+                <td>{{call.issue}}</td>
+                <td>{{call.content}}</td>
+                <td>{{call.email}}</td>
+                <td>{{call.status}}</td>
+            <td>{{call.kuser}}</td>
+            <td>{{call.date_posted|date:"j-m-Y, H:i"}}</td>
+            <td><a class="btn btn-sm btn-info" href="{% url 'ticket-update' call.id %}">Update</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url 'ticket-delete' call.id %}">Close</a></td>
+
+        </tr>
+            {%endfor%}
+</table>
+</body>
+</html>

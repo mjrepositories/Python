@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="btn btn-info mr-2" role="button" href="{% url 'spot-home'%}">Home</a>
+      </li>
+        {%if 'key_user' == group|stringformat:"s"%}
+      <li class="nav-item">
+            <a class="btn btn-info mr-2" role="button"  href="{% url 'request-spot'%}">Request spot</a>
+      </li>
+        {%endif%}
+        <li class="nav-item">
+            <a class="btn btn-info mr-2" role="button"  href="{% url 'offer-home'%}">Offers</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-primary mr-2" role="button" href="{% url 'logout'%}">Logout</a>
+
+        </li>
+    </ul>
+          {%if user.is_authenticated%}
+  <a class="navbar-brand" href=""><b>{{user.email}}</b></a>
+    {%endif%}
+  </div>
+</nav>

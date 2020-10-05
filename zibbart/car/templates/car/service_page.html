@@ -1,0 +1,19 @@
+{% extends "car/base.html" %}
+{% block content %}
+<h1 style="color:white;">Wprowadź dane dotyczące usługi</h1>
+
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <h1 style="color:white;">Data</h1>
+    {{form.fix_date}}
+    <h1 style="color:white;">Numer rejestracyjny</h1>
+    {{form.plate}}
+    <h1 style="color:white;">Marka</h1>
+{{form.car}}
+    <br>
+    <br>
+      <input type="submit" class="btn btn-info" name="Submit" value="Zarejestruj naprawę">
+</form>
+
+{%endblock content%}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key users manager</title>
+    <link rel="stylesheet" type="text/css" href= "/static/keyuser/css/main.css?{% now 'U' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>Here we have all cases raised</h1>
+
+
+<table>
+    <tr>
+        <th>Issue</th>
+        <th>Description</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Key user</th>
+        <th>Register date</th>
+        <th>Update</th>
+        <th>Close</th>
+    </tr>
+
+        <tr>
+                <td>{{object.issue}}</td>
+                <td>{{object.content}}</td>
+                <td>{{object.email}}</td>
+                <td>{{object.status}}</td>
+            <td>{{object.kuser}}</td>
+            <td>{{object.date_posted|date:"j-m-Y, H:i"}}</td>
+            <td><a class="btn btn-sm btn-info" href="">Update</a></td>
+            <td><a class="btn btn-sm btn-danger" href="">Close</a></td>
+
+        </tr>
+
+</table>
+
+
+</body>
+</html>

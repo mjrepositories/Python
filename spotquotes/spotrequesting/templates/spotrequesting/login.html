@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark d-flex flex-column min-vh-100">
+
+
+
+<!---<form method="POST" action="{%url 'login'%}">
+    {%csrf_token%}
+    <h5>Type in username</h5>
+        <input type="text" name="username" placeholder="Username...">
+
+ <h5>Type in password</h5>
+    <input type="password" name="password" placeholder="Password..." class="form-control" >
+    <br>
+    <br>
+    <input type="submit" value="Login">
+</form> -->
+
+<header></header>
+<content>
+<div class="col-md-6 login-form-2">
+    <form method="POST" action="{%url 'login'%}">
+    {%csrf_token%}
+        <h3>Spot Manager</h3>
+            <div class="form-group">
+                <input type="text" class="form-control"  name="username" placeholder="Email" value="" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Login" />
+            </div>
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd text-white" value="Login">Forgot Password?</a>
+            </div>
+    </form>
+</div>
+    </content>
+
+<footer id="main-footer" class="mt-auto">
+    <p style="text-align:center;">Copyright &copy; 2020 MJ</p>
+</footer>
+
+</body>
+</html>

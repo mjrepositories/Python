@@ -1,0 +1,24 @@
+<!--
+
+set-up for showing the offers
+
+
+{%block content%}
+    {%for offer in offers%}
+    <div class="offering">
+        <h1>{{offer.product}}</h1>
+        <h2>{{offer.seller}}</h2>
+        <h3>{{offer.description}}</h3>
+        <h4>{{offer.date_posted}}</h4>
+    </div>
+    {%endfor%}
+
+{%endblock content%}
+
+
+# previous set-up for style sheet - now i can update css without clicking ctrl+F5
+
+<link rel="stylesheet" type="text/css" href="{%static 'sher/main.css'%}">
+
+-->
+

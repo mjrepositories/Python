@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <title>First chart</title>
+</head>
+<body>
+<div class="container">
+    <h1>Maciej {{data}}</h1>
+<canvas id="myChart"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{carriers|safe}},
+        datasets: [{
+            label: 'Cost of Airfreight',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{aircost|safe}}
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
+</body>
+</html>

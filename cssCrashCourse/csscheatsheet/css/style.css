@@ -1,0 +1,259 @@
+/*
+*{
+asterix is referring to eveyrything we have on the webpage
+we can zero margin and padding for the whole page here
+margin:0;
+padding:0;
+}
+*/
+
+
+
+
+
+
+body{
+background-color:#f4f4f4;
+color:#555555;
+font-family:Arial,Helvetica,sans-serif;
+font-size:12px;
+font-weight:normal;
+/*i can also declare font in general so
+font:normal 16px Arial, Helvetica, sans-serif*/
+
+line-height:1.6em;
+margin:0
+
+/*line height allows to create a separation between lines of text*/
+}
+
+/*to target class we use dot "."*/
+
+
+a{
+text-decoration:none;
+color:#000;
+}
+
+/*a so links has different states. One of them is hover and that can be adjuted*/
+a:hover{
+color:red;
+}
+
+a:active{
+color:green;
+}
+/*
+by targetting visited we can show that link was already selected and user went to see a page
+a:visited{
+color:yellow;
+}
+
+*/
+
+.clr{
+clear:both;
+}
+
+.button{
+background-color:#333;
+color:#fff;
+padding:10px 15px;
+border:none;
+}
+
+.button:hover{
+    background:red;
+    color:white;
+}
+
+.block{
+float:left;
+width:33.3%;
+border:1px solid #ccc;
+padding:10px;
+box-sizing:border-box;
+/*box-sizing take first border and padding and then apply the rule written in width*/
+}
+
+.container{
+width:80%;
+margin:auto;
+}
+/*There is sometimes container class used, like in bootstrap, where we can specify what we want to see and how
+Width is setting up the width in pixels or any other value
+margin is setting the margin for the element we are operating on
+I can also use % for width and then page will be responsive and will adpat to width of the window*/
+
+
+
+.p-box{
+width:800px;
+height:500px;
+border:1px solid #000;
+margin-top:30px;
+position:relative;
+background-image:url('../images/bgimage.jpg');
+background-repeat:no-repeat;
+background-position:100px 200px;
+background-position:center top;
+}
+
+
+.p-box h1{
+position:absolute;
+top:40px;
+left:200px}
+
+.p-box h2{
+position:absolute;
+bottom:40px;
+right:100px;
+}
+
+.box-1{
+background-color:#333333;
+color:#ffffff;
+border-right:5px red solid;
+border-left:5px red solid;
+border-top:5px red solid;
+border-bottom:5px red solid;
+
+
+border-width:3px;
+border-top-style:dotted;
+
+border-bottom:5px red solid;
+
+/*
+above 4 lines can be replaced by 1 below:*/
+border: 5px red solid;
+
+padding:20px;
+
+margin-top:20px
+}
+
+#main-block{
+float:left;
+width:70%;
+padding:15px;
+box-sizing:border-box;
+}
+
+#sidebar{
+float:right;
+width:30%;
+background-color:#333;
+color:#fff;
+padding:15px;
+box-sizing:border-box;
+}
+
+
+
+
+
+
+
+
+
+.box-1 h1{
+font-family:Tahoma;
+font-weight:800;
+font-style:italic;
+text-decoration:underline;
+text-transform:uppercase;
+letter-spacing:0.2em;
+word-spacing:1em;
+}
+
+
+.box-2{
+border:3px dotted #ccc;
+padding 20px;
+margin:20px 0
+}
+
+.categories{
+border:1px #ccc solid;
+padding:10px;
+border-radius:15px;
+}
+
+.categories h2{
+text_align:center;
+}
+
+.categories ul{
+padding:0;
+padding-left:60px;
+list-style:square;
+list-style:none;
+}
+
+.categories li{
+padding-bottom:6px;
+border-bottom:dotted 1px #333;
+list-style-image:url('../images/check.png');
+}
+
+.my-form{
+padding:20px;
+
+}
+
+.my-form .form_group{
+padding-bottom:15px;
+}
+
+.my-form label{
+display:block;
+}
+
+.my-form input[type="text"], .my-form input[type="email"],.my-form textarea{
+padding:8px;
+width:100%;
+}
+
+.fix-me{
+position:fixed;
+top:400px;
+}
+
+/*pseudo classes allow us to target whatever element we want in some list. Can be n-th value*/
+.my-list li:first-child{
+background:red;
+}
+
+.my-list li:last-child{
+background:blue;
+}
+
+.my-list li:nth-child(5){
+background:yellow;
+}
+
+.my-list li:nth-child(even){
+background:green;
+}
+
+/*position fixed is attaching the element to the page and won't allow it to move*/
+
+/*So in general we have
+
+1. selector. So the element that we would like to style
+2. Declaration start by curly brace
+3. property which is indication what we would like to adjust in the element
+4. property separator which is just :
+5. value which is the how we would like to style property that we indicated
+6. declaration separator which is just ;
+7. declaration end which uses second curly brace
+
+property and values pairs are similar to what we have in dictionaries for python
+o key-value pairs*/
+
+/*There is box model which indicates that element has its padding, border and margin
+padding is inside border and margin is outside border
+
+Generally when we set up these values we go top-right-bottom-left*/

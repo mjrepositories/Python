@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key users Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/keyuser/css/main.css?{% now 'U' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<label>Choosen problem</label>
+<form action="" method="POST">
+    {%csrf_token%}
+
+    <h3>{{form.issue}}</h3>
+    <br>
+    <div id="container_content">
+        <label>Description of the problem</label>
+        <h3>{{form.content}}</h3>
+    </div>
+    <br>
+    <div id="container_mail">
+        <label>Necessary emails</label>
+        <h3>{{form.email}}</h3>
+    </div>
+    <br>
+        <div id="k_user">
+        <label>Assign key user</label>
+        <h3>{{form.kuser}}</h3>
+    </div>
+        <div id="status">
+        <label>Assign current status</label>
+        <h3>{{form.status}}</h3>
+    </div>
+
+  <input type="submit" name="Submit">
+</form>
+
+
+</body>
+</html>

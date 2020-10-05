@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Cheat Sheet</title>
+</head>
+<body>
+<a href="blog.html">Go to blog</a>
+<hr>
+<!-- Headings-->
+<h1>Heading One</h1>
+<h2>Heading Two</h2>
+<h3>Heading Three</h3>
+<h4>Heading Four</h4>
+<h5>Heading Five</h5>
+<h6>Heading Six</h6>
+
+<!--paragraph
+
+strong is making the text bold
+em is maing the text italic
+a is making the word clickable and is just an webpage reference
+target = "_blank" is opening the new tab and the side we were on is still active
+
+-->
+
+<p>Lorem ipsum <strong>dolor sit amet, consectetur</strong> adipisicing elit. Autem, minima?</p>
+<p>Lorem ipsum <em>dolor sit amet</em>, consectetur <a href="https:/google.com" target="_blank">adipisicing</a> elit. Autem, minima?</p>
+<!--
+lists
+
+we have two type of list - unordered and ordered
+-->
+
+<ul>
+    <!--unordered lists are with bullet points-->
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+</ul>
+
+<ol>
+    <!--order lists are with numbers-->
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+</ol>
+
+<!--tables
+
+tables have head and body  thead and tbody respectively
+
+in body we can put rows as tr and then as we need data in the table
+
+we type in td which means table data
+
+-->
+
+<table>
+    <thead>
+        <tr>
+            <!--th means table heading-->
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+     <tbody>
+        <tr>
+            <td>Maciej Janowski</td>
+            <td>Maciej@something.com</td>
+            <td>26</td>
+        </tr>
+
+        <tr>
+            <td>Jon Doe</td>
+            <td>Jon@something.com</td>
+            <td>21</td>
+        </tr>
+
+        <tr>
+            <td>Sarah Robinson</td>
+            <td>Sarah@something.com</td>
+            <td>22</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<hr>
+<!--forms-->
+
+<form action="process.php" method="POST">
+    <!--here we have action for submitting button indicated as well as method for action
+    which is here POST. It means that we are sending the data we enetered to the server.
+    In case of GET - we would be getting something from server based on our request-->
+    <div>
+        <label>First Name</label>
+        <!--placeholder in input field enables us to have grayish text that can be replaced
+        by what we are typing in-->
+        <input type="text" name="firstName" placeholder="Enter your name">
+    </div>
+<br>
+    <div>
+        <!--input fields enables us to add some text but short one-->
+         <label>Last Name</label>
+        <input type="text" name="lastName">
+    </div>
+
+<br>
+<div>
+    <!--email enables the user to type in the email with already some check-ups-->
+     <label>Email</label>
+    <input type="email" name="email">
+</div>
+
+
+<br>
+<div>
+    <!--text area enables to type in more text than usual-->
+     <label>Message</label>
+    <textarea name="Message"></textarea>
+</div>
+
+<br>
+<div>
+
+    <!--selection fields -->
+     <label>Gender</label>
+    <select name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+
+    </select>
+</div>
+<br>
+<div>
+    <!--age field
+    type number allows us to have number picker
+    by having value declared we can see default value in the field-->
+     <label>Age:</label>
+    <input type="number" name="age" value="30">
+</div>
+
+
+<br>
+<div>
+    <!--birtday field gives us the date picker for selection the date-->
+     <label>Birthday:</label>
+    <input type="date" name="birthday">
+</div>
+
+    <!--submit button that is directing us to the webpage indicated in action for form-->
+<input type="submit" name="submit" value="Submitting">
+</form>
+
+<br>
+<!--button. It only shows a button and we use javascript to make it dynamic-->
+<button>Click Me</button>
+
+<!-- Image
+
+we need to declare the source of the image
+initially we have as a basis folder the root of the website
+it could be different. Then we need to specify it more
+we can also set an alternative version in case system is
+not able to pick up proper image
+
+I can also point out href for the image . Then image
+will be clickable and by clicking it i will be able
+to move in browser directly to this image-->
+
+<br>
+<a href="bird.jpg">
+<img src="bird.jpg" alt="My sample image" width="200">
+</a>
+
+<!--block quote enables to type in quote and its source
+
+abbreviation enables browser to show the full text while hovering over the abbreviation
+
+cite tag tells browser to make the text italic-->
+
+<blockquote cite="http://interia.pl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at consequuntur eaque earum eum fugiat, hic laboriosam molestiae non voluptate! Aliquid dolore dolores eaque facere pariatur quibusdam unde vel velit?</blockquote>
+<p>The <abbr title="World Wide Web">WWW</abbr> is awesome</p>
+
+<p><cite>Zostanie tylko pustka</cite> powiedzial Maciej</p>
+
+</body>
+</html>
+
+<!--semantic tags indicates the parts of the website that we can create
+it encompasses things like header, navigation bar, articles footer-->

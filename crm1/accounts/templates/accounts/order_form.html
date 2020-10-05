@@ -1,0 +1,32 @@
+<!--We are extending here the fuctionality of main template
+We are loading static files
+And we are indcating the content block that will be rendered to the template-->
+{%  extends 'accounts/main.html' %}
+{%load static%}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <!--below is the method that indicates that whenever we submit the data
+            that is entered by the user we want to use POST-->
+            <form action="" method="POST">
+                <!--  srcf is a way to send the data from our form securily-->
+                {%csrf_token%}
+                <!-- below is the loop for filling in the fields for each form
+                In addition to that, management_form is enabling the program to
+                save the form one by one-->
+                {{formset.management_form}}
+                {%for form in formset%}
+                    {{form}}
+                    <hr>
+                {%endfor%}
+                <input type="submit" name ="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

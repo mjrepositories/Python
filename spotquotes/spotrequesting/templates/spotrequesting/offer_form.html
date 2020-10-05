@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+{%include 'spotrequesting/navbar.html'%}
+<div class="page-header">
+<h4>Edit your offer</h4>
+</div>
+<table class="table table-striped table-dark h6 mb-1">
+  <thead>
+    <tr>
+        <th>Gross weight</th>
+        <th>Volume</th>
+        <th>Origin Country</th>
+        <th>Origin Port</th>
+        <th>Destination Country</th>
+        <th>Destination Port</th>
+        <th>Week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>{{spotting.spot.gross_weight}}</td>
+        <td>{{spotting.spot.volume}}</td>
+        <td>{{spotting.spot.origin_country}}</td>
+        <td>{{spotting.spot.origin_port}}</td>
+        <td>{{spotting.spot.dest_country}}</td>
+        <td>{{spotting.spot.dest_port}}</td>
+        <td>{{spotting.spot.ship_week}}</td>
+    </tr>
+  </tbody>
+</table>
+<form action="" method="POST">
+
+    {%csrf_token%}
+    <div class="form-group mb-2">
+<h6>Enter currency</h6>
+        {{form.currency}}
+    </div>
+    <div class="form-group">
+    <h6>Enter pickup charge</h6>
+        {{form.pickup}}
+    </div>
+    <div class="form-group">
+    <h6>Enter origin customs charge</h6>
+        {{form.origin_cust}}
+    </div>
+    <div class="form-group">
+    <h6>Enter origin port handling charge</h6>
+        {{form.origin_hand}}
+    </div>
+    <div class="form-group">
+    <h6>Enter airfreight charge</h6>
+        {{form.airfreight}}
+    </div>
+    <div class="form-group">
+    <h6>Enter destination customs charge</h6>
+        {{form.dest_cust}}
+    </div>
+    <div class="form-group">
+    <h6>Enter destination handling charge</h6>
+        {{form.dest_hand}}
+    </div>
+    <div class="form-group">
+       <h6>Enter delivery charge</h6>
+        {{form.delivery}}
+    </div>
+    <div class="form-group">
+       <h6>Enter screening charge</h6>
+        {{form.screening}}
+    </div>
+    <div class="form-group">
+       <h6>Enter dangerous goods charge</h6>
+        {{form.dgfee}}
+        {{form.spot.as_hidden}}
+    </div>
+
+  <input type="submit" name="Submit">
+</form>
+
+
+</body>
+</html>

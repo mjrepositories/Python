@@ -1,0 +1,121 @@
+{% extends "car/base.html" %}
+{% block content %}
+<div style="height: 310px">
+<form action="/part_service" method="POST">
+{%csrf_token%}
+
+    <div class="container" id="what_id">
+<h4 style="color:white;">Wybierz kategorię</h4>
+{{form.what_provided}}
+        </div>
+
+    <div class="container" id="service_id">
+<h4 style="color:white;">Nazwa usługi</h4>
+{{form.service_provided}}
+</div>
+
+    <div class="container" id="product_id">
+<h4 style="color:white;">Nazwa produktu</h4>
+{{form.product_provided}}
+    </div>
+
+    <div class="container" id="price_id">
+<h4 style="color:white;">Cena</h4>
+{{form.price}}
+    </div>
+
+    <div class="container" id="quantity_id">
+<h4 style="color:white;">Ilość</h4>
+{{form.quantity}}
+    </div>
+
+{{form.repair.as_hidden}}
+    <br>
+      <input type="submit" class="btn btn-info" name="Submit" value="Zarejestruj naprawę">
+</form>
+</div>
+<br>
+
+<h4 style="color:white;">Spis usług</h4>
+<table class="table table-striped table-dark w-50">
+  <thead>
+    <tr>
+        <th style="width:55%">Opis</th>
+        <th style="width:1% ;color: transparent">Ilość</th>
+        <th style="width:24%">Cena</th>
+        <th style="width:5%"></th>
+        <th style="width:5%"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+           {% for service in my_services %}
+    <tr>
+        <td>{{service.service_provided}}</td>
+        <td></td>
+        <td>{{service.price}}</td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'service-update' service.id %}">Modyfikuj</a></td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'service-delete' service.id %}">Usuń</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br>
+
+<h4 style="color:white;">Spis części</h4>
+<table class="table table-striped table-dark w-50">
+  <thead>
+    <tr>
+        <th style="width:55%">Opis</th>
+        <th style="width:1%">Ilość</th>
+        <th style="width:24%">Cena</th>
+        <th style="width:5%"></th>
+        <th style="width:5%"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+           {% for part in my_parts %}
+    <tr>
+        <td>{{part.product_provided}}</td>
+        <td>{{part.quantity}}</td>
+        <td>{{part.price}}</td>
+       <td><a class="btn btn-sm btn-info" href="{% url 'service-update' part.id %}">Modyfikuj</a></td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'service-delete' part.id %}">Usuń</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+ function myFunction() {
+ var x = document.getElementById("id_what_provided").value;
+    if (x === "USŁUGA") {
+    document.getElementById("service_id").style.display = "block";document.getElementById('id_product_provided').value = 'x';
+    document.getElementById("product_id").style.display = "none";
+    document.getElementById("price_id").style.display = "block";
+    document.getElementById("quantity_id").style.display = "none";
+    document.getElementById('id_service_provided').value = '';
+    document.getElementById("quantity_id").value = "1";
+
+
+    } else if (x === "CZĘŚĆ") {
+    document.getElementById("product_id").style.display = "block";
+    document.getElementById("service_id").style.display = "none";
+    document.getElementById('id_service_provided').value = 'x';
+    document.getElementById("price_id").style.display = "block";
+    document.getElementById("quantity_id").style.display = "block";
+    document.getElementById('id_product_provided').value = '';
+
+    } else {document.getElementById("product_id").style.display = "none";
+    document.getElementById("service_id").style.display = "none";
+    document.getElementById("price_id").style.display = "none";
+    document.getElementById("quantity_id").style.display = "none";
+    document.getElementById('id_price').value = '';
+    document.getElementById('id_quantity').value = '';
+    document.getElementById('id_service_provided').value = '';
+    document.getElementById('id_product_provided').value = '';}
+}
+    </script>
+
+{%endblock content%}

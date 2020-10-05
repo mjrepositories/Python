@@ -1,0 +1,64 @@
+html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body{
+background-color:rgb(11,94,215);
+height: 100%;
+}
+
+
+#logo{
+position: absolute;
+bottom: 0;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+}
+
+#logo img {
+    position:right bottom;
+}
+
+#container_content{
+display:none;
+}
+
+.fontcoloring{
+color:white;
+}
+
+#pleasecheck{
+color:white;
+}
+
+#recovery{
+display:none;
+}
+
+#id_email{
+width:1000px;
+font-size: 14px;
+}
+
+#id_kuser{
+font-size: 14px;
+}
+
+#id_status{
+font-size: 14px;
+}
+
+#id_issue{
+font-size: 14px;
+}
+
+
+#id_content{
+width:1000px;
+font-size: 14px;
+}

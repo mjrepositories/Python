@@ -1,0 +1,20 @@
+{% extends "car/base.html" %}
+{% block content %}
+<div class="page-header">
+<h4 style="color:white;">Czy chcesz usunąć usługę {{object.spot}}?</h4>
+</div>
+
+<form action="" method="POST">
+
+    {%csrf_token%}
+    <div>
+        <div class="col-lg-6 mb-2">
+    <button class="btn btn-lg col-lg-6 btn-danger" type="submit">Tak</button>
+            </div>
+        <div class="col-lg-6">
+    <a class="btn btn-lg col-lg-6 btn-info" href="{%url 'panel-page' %}">Nie</a>
+        </div>
+    </div>
+</form>
+
+{%endblock content%}

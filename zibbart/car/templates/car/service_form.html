@@ -1,0 +1,33 @@
+{% extends "car/base.html" %}
+{% block content %}
+<h1 style="color:white">Edytuj dane</h1>
+
+
+<form action="" method="POST">
+    {%csrf_token%}
+    {%if 'CZĘŚĆ' in services|stringformat:"s"%}
+    <h1 style="color:white;">Opis</h1>
+    {{form.product_provided}}
+      <h1 style="color:white;">Ilość</h1>
+    {{form.quantity}}
+    <h1 style="color:white;">Cena</h1>
+    {{form.price}}
+    {{form.service_provided.as_hidden}}
+    {{form.repair.as_hidden}}
+    {{form.what_provided.as_hidden}}
+    {%else%}
+    <h1 style="color:white;">Opis</h1>
+    {{form.service_provided}}
+    <h1 style="color:white;">Cena</h1>
+    {{form.price}}
+    {{form.product_provided.as_hidden}}
+    {{form.what_provided.as_hidden}}
+    {{form.quantity.as_hidden}}
+    {{form.repair.as_hidden}}
+    {%endif%}
+    <br>
+    <br>
+      <input type="submit" class="btn btn-info" name="Submit" value="Zarejestruj zmianę">
+</form>
+
+{%endblock content%}

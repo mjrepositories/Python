@@ -1,0 +1,30 @@
+<!--We are extending here the fuctionality of main template
+We are loading static files
+And we are indcating the content block that will be rendered to the template-->
+{%  extends 'accounts/main.html' %}
+{%load static%}
+
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+
+                <!--pargraph with the qusetion to the user if he wants to delete the order-->
+                <p>Are you sure you want to delete"{{item}}"</p>
+                <!--We are setting up the method to post so that data will be shared an updated in the database-->
+                <form action="{%url 'delete_order' item.id%}" method="POST">
+                    {%csrf_token%}
+                <!-- When cancel is clicked we are moving to the homepage so that order is not deleted-->
+                    <a class="btn btn-warning" href="{%url 'home'%}">Cancel</a>
+                <!---->
+                    <input class="btn btn-danger" type="submit" name="Confirm">
+                </form>
+
+        </div>
+    </div>
+</div>
+<!--Parag
+
+{% endblock%}

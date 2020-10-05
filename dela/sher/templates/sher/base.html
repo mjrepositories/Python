@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+     <link rel="stylesheet" type="text/css" href="/static/sher/main.css?{% now 'U' %}">
+</head>
+<body id ='bootstrap-overwrites'>
+
+<header id="main-header">
+    <div id="heading-text">
+        <h1><a href="{%url 'home-page'%}">SherIT</a></h1>
+    </div>
+</header>
+    <nav id="navbar">
+        <div class="container">
+            {%if title|stringformat:"s" == "Dela"%}
+             {%include 'sher/navbar.html'%}
+                {%endif%}
+
+         </div>
+    </nav>
+
+    <section id="showcase"style="background-image: url('{% static 'sher/showcase.jpg'%}')">
+        <div class="container">
+            <h1>Dziel sie tym, co dobre</h1>
+
+        </div>
+
+    </section>
+<section id="prod-cat">
+    <div class="container">
+        {%if title|stringformat:"s" == "Dela"%}
+        <section id="offers">
+            <h1>Ogloszenia</h1>
+        </section>
+         {%endif%}
+
+    </div>
+        {%if title|stringformat:"s" == "Dela"%}
+            {%include 'sher/categories.html'%}
+        {%endif%}
+
+</section>
+{%block content%}{%endblock%}
+<footer id="main-footer">
+    <p>Copyright &copy; 2020 MJ</p>
+</footer>
+</body>
+</html>

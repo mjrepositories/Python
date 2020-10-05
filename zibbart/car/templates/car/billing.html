@@ -1,0 +1,99 @@
+{%load static%}
+{% load mathfilters %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<style>
+
+
+#div1 {
+    display: inline-block;
+
+}
+#div2 {
+    display: inline-block;
+
+}
+
+</style>
+	<meta charset="UTF-8">
+</head>
+
+<body onload="window.print()">
+    <!-- Content for Static Frame 'header_frame' -->
+    <img src="{% static 'car/images/zibbartkarta.png'%}"/>
+    <div id="header_content">
+<div id="wrapper">
+    <div id="div1">
+		<h3>Data</h3>
+	</div>
+    <div id="div2">
+		<h3 id="date"></h3>
+	</div>
+</div>
+    	<h3 style="margin-top:0px">{{car}} {{plate}}</h3>
+    </div>
+
+    <!-- HTML Content -->
+	<hr>
+
+    <table cellpadding="3px">
+    	<tr>
+
+    		<th>Część</th>
+    		<th>Ilość</th>
+    		<th>Cena</th>
+    		<th>Suma</th>
+    	</tr>
+		<tr></tr>
+		{%for part in my_parts%}
+    	<tr>
+
+    		<td>{{part.product_provided}}</td>
+    		<td>{{part.quantity}}</td>
+    		<td>{{part.price}}</td>
+    		<td>{{part.quantity|mul:part.price}}</td>
+    	</tr>
+		{%endfor%}
+    </table>
+	<p><strong>Suma (części): {{sum_parts}} zł</strong></p>
+    <hr>
+
+	    <table cellpadding="3px">
+    	<tr>
+
+    		<th>Usługa</th>
+    		<th style="color: transparent">Ilość</th>
+    		<th>Cena</th>
+    		<th style="color: transparent">Suma</th>
+    	</tr>
+			<tr></tr>
+			{%for service in my_services%}
+    	<tr>
+
+    		<td>{{service.service_provided}}</td>
+    		<td style="color: transparent">1</td>
+    		<td>{{service.price}}</td>
+    		<td style="color: transparent">1</td>
+    	</tr>
+			{%endfor%}
+    </table>
+ <p><strong>Suma (serwis): {{sum_services}} zł</strong></p>
+    <hr>
+	<h1>{{maciej}}</h1>
+    <p><strong>Suma (części + serwis): {{sum}} zł</strong></p>
+
+
+</body>
+
+
+<script>
+	n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = d +"-" + m + "-" + y;
+
+
+
+</script>
+</html>

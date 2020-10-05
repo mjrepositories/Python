@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key users Application</title>
+    <link rel="stylesheet" type="text/css" href="/static/keyuser/css/main.css?{% now 'U' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form action="" method="POST">
+    {%csrf_token%}
+    <legend>Close ticket</legend>
+    <h2>Are you sure you want to mark ticket as solved?</h2>
+  <button class="btn btn-outline-danger" type="submit">Close</button>
+    <a class="btn btn-outline-info" href="{%url 'keyuser-overview' %}">Return to manager</a>
+</form>
+
+
+</body>
+</html>

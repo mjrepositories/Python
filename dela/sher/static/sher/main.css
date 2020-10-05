@@ -1,0 +1,229 @@
+body{
+background-color:#f4f4f4;
+color:#555;
+font-family:Arial,Helvetica,sans-serif;
+font-size:16px;
+line-height:1.6em;
+margin:0;
+}
+
+
+#bootstrap-overwrites #main-header #heading-text {
+width:80%;
+margin:auto;
+overflow:hidden;
+padding:-10px;
+}
+
+.heading-text{
+font-family:Arial,Helvetica,sans-serif;
+}
+
+ul{
+display: inline-block;
+}
+
+.container{
+width:80%;
+margin:auto;
+overflow:hidden;
+
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+
+#main-header{
+background-color:coral;
+color:#fff;
+
+}
+
+
+#main-header a{
+color:#fff;
+text-decoration:none;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+
+#navbar{
+background-color:#333;
+color:#fff;
+
+}
+
+
+
+#navbar .container{
+height:80px;
+}
+
+#navbar ul{
+padding:0;
+list-style:none;
+
+}
+
+#navbar li{
+display:inline;
+}
+
+
+#navbar a{
+color:#fff;
+text-decoration:none;
+font-size:18px;
+padding-right:15px;
+}
+
+
+#showcase{
+background-image:url('static\sher\showcase.jpg');
+background-position:center right;
+max-height:300px;
+margin-bottom:30px;
+text-align:center;
+}
+
+#showcase h1{
+color:#fff;
+font-size:50px;
+line-height:1.6em;
+padding-top:30px;
+}
+
+.cat{
+color:coral
+}
+#prod-cat{
+height:300px;
+}
+
+#prod-cat > div:first-of-type {
+background-color:coral;
+}
+
+#prod-cat .container #offers{
+color:#fff;
+
+text-align:center;
+}
+
+
+
+#main{
+float:left;
+width:70%;
+padding:0 30px;
+box-sizing:border-box;
+}
+
+#sidebar{
+float:right;
+width:30%;
+background:#333;
+color:#fff;
+padding:10px;
+box-sizing:border-box;
+}
+
+
+
+#main-bar{
+float:left;
+width:70%;
+padding:10px;
+box-sizing:border-box;
+}
+
+#sidebar-bar{
+float:right;
+width:30%;
+background:#333;
+color:#fff;
+padding:10px;
+box-sizing:border-box;
+}
+
+#sidebar-bar  a.log:hover {
+color:red;
+}
+
+
+
+.container .first_line{
+float:left;
+padding:20px;
+
+}
+
+
+
+.container .first_line{
+float:left;
+padding:20px;
+}
+
+#main-footer{
+background:#333;
+color:#fff;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+
+/*@media allows us to change the settings for objects while some condition is met
+in brackets we type in condition and then in curly braces we indicates
+elements that we want to change under these conditions*/
+@media(max-width:600px){
+    #main{
+    width:100%;
+    float:none
+    }
+
+        #sidebar{
+    width:100%;
+    float:none
+    }

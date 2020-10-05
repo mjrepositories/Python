@@ -1,0 +1,21 @@
+
+{%extends "sher/base.html"%}
+
+{%block content%}
+    {%for offer in offers%}
+
+
+     <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ offer.author }}</a>
+              <small class="text-muted">{{ offer.posting_date|date:"F d, Y" }}</small>
+                <a class="cat" href="#">Kategoria: {{offer.category}}</a>
+            </div>
+            <h2><a class="article-title" href="#">{{ offer.title }}</a></h2>
+            <p class="article-content">{{ offer.content }}</p>
+          </div>
+        </article>
+    {%endfor%}
+{%endblock content%}
+

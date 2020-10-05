@@ -1,0 +1,41 @@
+{% extends "car/base.html" %}
+{% block content %}
+<h1 style="color:white;">Panel nawigacyjny</h1>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+        <th>Data</th>
+        <th>Rejestracja</th>
+        <th>Model</th>
+        <th>Dodaj/usuń naprawy i części</th>
+        <th>Modyfikuj dane usługi</th>
+        <th>Usuń usługę</th>
+        <th>Generuj dokumentację</th>
+
+    </tr>
+  </thead>
+  <tbody>
+           {% for repair in repairs %}
+    <tr>
+        <td>{{repair.fix_date|date:"Y-m-d"}}</td>
+        <td>{{repair.plate}}</td>
+        <td>{{repair.car}}</td>
+        <td>
+        <form action="/part_service" method="POST">
+            {%csrf_token%}
+         <button type="submit" class="btn btn-sm btn-primary" name="repair_no" value="{{repair.id}}">Dodaj / Usuń</button>
+            </form>
+        </td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'repair-update' repair.id %}">Modyfikuj</a></td>
+        <td><a class="btn btn-sm btn-success" href="{% url 'repair-delete' repair.id %}">Usuń</a></td>
+        <td>
+        <form action="/billing" method="POST">
+            {%csrf_token%}
+        <button type="submit" class="btn btn-sm btn-warning" name="repair_no" value="{{repair.id}}">Generuj</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock content%}

@@ -1,0 +1,78 @@
+<select id="id1" onchange="myFunction()">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+ <input id='id2' type="text">
+
+#id2 {
+    display:none;
+}
+
+
+function myFunction() {
+    var x = document.getElementById("id1").value;
+    if (x == "3") {document.getElementById("id2").style.display = "block";document.getElementById('id2').value = '';}
+    else {document.getElementById("id2").style.display = "none"}
+}
+
+
+
+<link rel="stylesheet" type="text/css" href="{%static 'keyuser/css/main.css'%}">
+
+
+Working function
+    <script>
+    function myFunction() {
+    var x = document.getElementById("id1").value;
+    if (x == "Other") {document.getElementById("id2").style.display = "block";document.getElementById('id2').value = '';}
+    else if (x == "Don't remember the password") {document.getElementById("id2").style.display = "none"}
+}
+    </script>
+
+
+
+    <h1>Below you can indicate the issue you have</h1>
+<div class="form_group">
+            <!--input fields enables us to add some text but short one-->
+             <label>Enter relevant email</label>
+            <input type="text" name="email" size="100">
+</div>
+
+
+    {%csrf_token%}
+    {{form}}
+  <label>Choose your problem:</label>
+  <select name="issue" id="id1" onchange="myFunction()">
+    <option value="expiration">Password expired</option>
+    <option value="block">Account blocked</option>
+    <option value="forgotten">Don't remember the password</option>
+    <option value="Other">Other? Type your issue</option>
+  </select>
+    <div id="recovery">
+    <h2 id="pleasecheck">Please check first the option for resetting the password by clicking on "Recover your password"</h2>
+    <img src="{%static 'keyuser/images/recovery.png'%}" id="recoveryimage">
+    </div>
+    <input id='id2' type="text" size="100">
+  <br><br>
+  <input type="submit" name="Submit">
+
+
+
+ function myFunction() {
+    var x = document.getElementById("id_issue").value;
+    if (x === "Other") {
+    document.getElementById("id_content").style.display = "block";document.getElementById('id_content').value = '';
+    document.getElementById("recoveryimage").style.display = "none";
+    document.getElementById("pleasecheck").style.display = "none";
+    } else if (x === "Don't remember the password") {
+    document.getElementById("recoveryimage").style.display = "block";
+    document.getElementById("pleasecheck").style.display = "block";
+    document.getElementById("id_content").style.display = "none";
+    } else {document.getElementById("recoveryimage").style.display = "none";
+    document.getElementById("id_content").style.display = "none";
+    document.getElementById("pleasecheck").style.display = "none"}
+
+}
+
+

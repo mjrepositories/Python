@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+
+
+
+<!---<form method="POST" action="{%url 'login'%}">
+    {%csrf_token%}
+    <h5>Type in username</h5>
+        <input type="text" name="username" placeholder="Username...">
+
+ <h5>Type in password</h5>
+    <input type="password" name="password" placeholder="Password..." class="form-control" >
+    <br>
+    <br>
+    <input type="submit" value="Login">
+</form> -->
+
+
+<div class="col-md-6 login-form-2">
+    <form method="POST" action="{%url 'login'%}">
+    {%csrf_token%}
+        <h3>Spot Manager</h3>
+            <div class="form-group">
+                <input type="text" class="form-control"  name="username" placeholder="Email" value="" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Login" />
+            </div>
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd text-white" value="Login">Forgot Password?</a>
+            </div>
+    </form>
+</div>
+
+<footer id="main-footer">
+    <p>Copyright &copy; 2020 MJ</p>
+</footer>
+
+</body>
+</html>
+
+
+
+#FORMSET FOR FILTERTING
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register spot</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+{%include 'spotrequesting/navbar.html'%}
+<table class="table table-striped table-dark h6 mb-1 table-bordered" style="background-color: #223f40">
+  <thead>
+    <tr>
+        <th>Gross weight</th>
+        <th>Volume</th>
+        <th>Origin Country</th>
+        <th>Origin Port</th>
+        <th>Destination Country</th>
+        <th>Destination Port</th>
+        <th>Week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>{{spot_requested.gross_weight}}</td>
+        <td>{{spot_requested.volume}}</td>
+        <td>{{spot_requested.origin_country}}</td>
+        <td>{{spot_requested.origin_port}}</td>
+        <td>{{spot_requested.dest_country}}</td>
+        <td>{{spot_requested.dest_port}}</td>
+        <td>{{spot_requested.ship_week}}</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+        <th>Currency</th>
+        <th>Pickup</th>
+        <th>Origin customs</th>
+        <th>Origin Handling</th>
+        <th>Airfreight</th>
+        <th>Destination customs</th>
+        <th>Destination handling</th>
+        <th>Delivery</th>
+        <th>DG fee</th>
+        <th>Screening fee</th>
+        <th>carrier</th>
+        <th>Accept</th>
+        <th>status</th>
+    </tr>
+  </thead>
+    <form action="" method="POST">
+    {%csrf_token%}
+  <tbody>
+           {% for spot,forming in mylist %}
+    <tr>
+        <td>{{spot.currency}}</td>
+        <td>{{spot.pickup}}</td>
+        <td>{{spot.origin_cust}}</td>
+        <td>{{spot.origin_hand}}</td>
+        <td>{{spot.airfreight}}</td>
+        <td>{{spot.dest_cust}}</td>
+        <td>{{spot.dest_hand}}</td>
+        <td>{{spot.delivery}}</td>
+        <td>{{spot.dgfee}}</td>
+        <td>{{spot.screening}}</td>
+        <td>{{spot.carrier}}</td>
+        <td>
+            <div class="row">
+                {{ forming.management_form }}
+            {%for field in forming%}
+                {{field}}
+                {%endfor%}
+            </div>
+        </td>
+        <td>{{spot.offer_status}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Process offers</button>
+    </div>
+</form>
+
+</body>
+</html>
+
+
+{%for field in forming%}
+                {{field}}
+                {%endfor%}

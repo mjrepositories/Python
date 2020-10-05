@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register spot</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body class="text-white bg-dark">
+{%include 'spotrequesting/navbar.html'%}
+<!--<table>
+    <tr>
+        <th>Gross weight</th>
+        <th>Volume</th>
+        <th>Origin Country</th>
+        <th>Origin Port</th>
+        <th>Destination Country</th>
+        <th>Destination Port</th>
+        <th>Week</th>
+        <th>Submit Offer</th>
+        <th>Modify Offer</th>
+
+    </tr>
+          {% for spot in spotrequests %}
+    <tr>
+        <td>{{spot.gross_weight}}</td>
+        <td>{{spot.volume}}</td>
+        <td>{{spot.origin_country}}</td>
+        <td>{{spot.origin_port}}</td>
+        <td>{{spot.dest_country}}</td>
+        <td>{{spot.dest_port}}</td>
+        <td>{{spot.ship_week}}</td>
+        <td><a class="btn btn-sm btn-info" href="{% url 'offer-spot'%}">Submit</a></td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'spot-update' spot.id %}">Modify</a></td>
+         <td>{{spot.requestor}}</td>
+    </tr>
+    {% endfor %}
+</table>
+-->
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+        <th>Gross weight</th>
+        <th>Volume</th>
+        <th>Origin Country</th>
+        <th>Origin Port</th>
+        <th>Destination Country</th>
+        <th>Destination Port</th>
+        <th>Week</th>
+        {%if 'carrier' == group|stringformat:"s"%}
+        <th>Submit Offer</th>
+        {%endif%}
+        {%if 'key_user' == group|stringformat:"s"%}
+        <th>Modify Spot</th>
+        {%endif%}
+        {%if 'key_user' == group|stringformat:"s" or "F&D" == group|stringformat:"s"%}
+        <th>Check offers</th>
+        {%endif%}
+    </tr>
+  </thead>
+  <tbody>
+             {% for spot in spotrequests %}
+    <tr>
+        <td>{{spot.gross_weight}}</td>
+        <td>{{spot.volume}}</td>
+        <td>{{spot.origin_country}}</td>
+        <td>{{spot.origin_port}}</td>
+        <td>{{spot.dest_country}}</td>
+        <td>{{spot.dest_port}}</td>
+        <td>{{spot.ship_week}}</td>
+        {%if 'carrier' == group|stringformat:"s"%}
+        <td>
+            <form action="/offer_spot" method="POST">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-sm btn-info" name="spot_identify" value="{{spot.id}}">Offer</button>
+            </form>
+        </td>
+        {%endif%}
+        {%if 'key_user' == group|stringformat:"s"%}
+        <td><a class="btn btn-sm btn-danger" href="{% url 'spot-update' spot.id %}">Modify</a></td>
+        {%endif%}
+        {%if 'key_user' == group|stringformat:"s" or "F&D" == group|stringformat:"s"%}
+         <td>
+            <form action="/offers_filtered" method="POST">
+                {%csrf_token%}
+                <button type="submit" class="btn btn-sm btn-success" name="spot_identity" value="{{spot.id}}">Check</button>
+            </form>
+        </td>
+        {%endif%}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+</body>
+</html>
+
+
+

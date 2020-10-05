@@ -1,0 +1,43 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/car/css/main.css?{% now 'U' %}">
+        <script>
+ function myFunction() {
+ var x = document.getElementById("issue").value;
+    if (x === "Other") {
+    document.getElementById("container_content").style.display = "block";document.getElementById('content').value = '';
+    document.getElementById("recovery").style.display = "none";
+    } else if (x === "Don't remember the password") {
+    document.getElementById("recovery").style.display = "block";
+    document.getElementById("container_content").style.display = "none";
+    document.getElementById('content').value = 'not specified';
+    } else {document.getElementById("recovery").style.display = "none";
+    document.getElementById("container_content").style.display = "none";
+    document.getElementById('content').value = 'not specified';}
+}
+    </script>
+
+    {%if 'main' == title|stringformat:"s"%}
+    <title>Strona Główna</title>
+    {%endif%}
+    {%if 'service' == title|stringformat:"s"%}
+    <title>Rejetracja usługi</title>
+    {%endif%}
+    {%if 'history' == title|stringformat:"s"%}
+    <title>Historia napraw</title>
+    {%endif%}
+      {%if 'panel' == title|stringformat:"s"%}
+    <title>Panel</title>
+    {%endif%}
+</head>
+<body  style="background: url({% static 'car/images/black.jpg' %});background-repeat: no-repeat;
+  background-attachment: fixed;">
+{%include 'car/navbar.html'%}
+
+{% block content %}{% endblock %}
+</body>
+</html>
