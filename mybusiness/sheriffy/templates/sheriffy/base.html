@@ -1,0 +1,39 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/main.css?{% now 'U' %}">
+
+</head>
+<body>
+<div id="page-container">
+    <div id="content-wrap">
+{%include 'sheriffy/navbar.html'%}
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-{{message.tags}}">
+{{message}}
+</div>
+{%endfor%}
+{%endif%}
+{% block content %}{% endblock %}
+    </div>
+<!-- Footer -->
+<footer id="footer" class="page-footer font-small blue footer-copyright text-center">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-2">© 2020 Copyright:
+    <a href="https://www.linkedin.com/in/maciej-janowski-944316149/"> MJ Corp.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+</div>
+</body>
+</html>

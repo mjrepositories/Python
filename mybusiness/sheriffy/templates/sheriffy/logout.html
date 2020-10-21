@@ -1,0 +1,13 @@
+
+{% extends "sheriffy/base.html" %}
+{% block content %}
+<div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+     <div class="col text-center" style="background:green;color: white;">
+     <h3>See you later</h3>
+     </div>
+  <div class="col text-center" style="background:red;color: white;">
+    <h1>Dare to share</h1>
+  </div>
+</div>
+<a class="text-white" href="{% url 'login'%}">Log in again</a>
+{%endblock content%}

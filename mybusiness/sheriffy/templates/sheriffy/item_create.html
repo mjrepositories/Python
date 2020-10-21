@@ -1,0 +1,49 @@
+{% extends "sheriffy/base.html" %}
+{% block content %}
+<div class="peach-gradient" style="display:flex">
+    <div style="display:inline-block">
+  <form method="POST">
+    {%csrf_token%}
+     <label for="defaultFormNameModalEx">Item for sharing</label>
+      <br>
+{{form.thing}}
+
+     <br>
+      <label for="defaultFormMessageModalEx">Describe your thing</label>
+      <br>
+{{form.description}}
+
+     <br>
+     <label for="defaultFormEmailModalEx">Region</label>
+      <br>
+{{form.zone}}
+
+     <br>
+
+     <label for="defaultFormSubjectModalEx">Category</label>
+      <br>
+{{form.category}}
+
+     <br>
+     <label for="defaultFormSubjectModalEx">New or used?</label>
+      <br>
+{{form.state}}
+{{form.owner.as_hidden}}
+{{form.status.as_hidden}}
+     </div>
+    <br>
+{{ form.errors }}
+    <div id="formsetting" style="display:inline-block">
+{{formset.as_p}}
+</div>
+</div>
+
+ <input type="submit" class="btn btn-info" name="Submit" value="Let's share it">
+</form>
+
+
+
+
+
+
+{%endblock content%}

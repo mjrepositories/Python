@@ -1,0 +1,52 @@
+{% extends "sheriffy/base.html" %}
+
+{% block content %}
+<div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+  <div class="col text-center" style="background:red;color: white;">
+    <h1>What's on shAIR today?</h1>
+  </div>
+</div>
+{%for offer in offers%}
+<!-- <article class="media content-section">-->
+<!--          <img class="rounded-circle article-img" src="">-->
+<!--          <div class="media-body">-->
+<!--            <div class="article-metadata">-->
+<!--              <a class="mr-2" href="">Hello</a>-->
+<!--              <small class="text-muted">{{ offer.time_registered|date:"F d, Y" }}</small>-->
+<!--            </div>-->
+<!--            <h2><a class="article-title" href="">Here is the title</a></h2>-->
+<!--            <p class="article-content">let's check</p>-->
+<!--          </div>-->
+<!--        </article>-->
+
+
+<div class="mySlides">
+  <h1>{{offer.thing}}</h1>
+</div>
+
+
+
+{%endfor%}
+<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+<script>
+  var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+{%endblock content%}
+

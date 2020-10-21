@@ -1,0 +1,89 @@
+<div class="peach-gradient">
+ <form method="POST">
+    {%csrf_token%}
+     <label for="defaultFormNameModalEx">Item for sharing</label>
+{{form.thing}}
+     <br>
+     <br>
+      <label for="defaultFormMessageModalEx">Describe your thing</label>
+{{form.description}}
+          <br>
+     <br>
+     <label for="defaultFormEmailModalEx">Region</label>
+{{form.zone}}
+         <br>
+     <br>
+
+     <label for="defaultFormSubjectModalEx">Category</label>
+{{form.category}}
+          <br>
+     <br>
+     <label for="defaultFormSubjectModalEx">New or used?</label>
+{{form.state}}
+         <br>
+     <br>
+{{form.status.as_hidden}}
+     </div>
+    <br>
+ <input type="submit" class="btn btn-info" name="Submit" value="Let's share it">
+</form>
+
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <!-- Default input name -->
+        <label for="defaultFormNameModalEx">Your name</label>
+        <input type="text" id="defaultFormNameModalEx" class="form-control form-control-sm">
+
+        <br>
+
+        <!-- Default input email -->
+        <label for="defaultFormEmailModalEx">Your email</label>
+        <input type="password" id="defaultFormEmailModalEx" class="form-control form-control-sm">
+
+        <br>
+
+        <!-- Default input subject -->
+        <label for="defaultFormSubjectModalEx">Subject</label>
+        <input type="text" id="defaultFormSubjectModalEx" class="form-control form-control-sm">
+
+        <br>
+
+        <!-- Default textarea message -->
+        <label for="defaultFormMessageModalEx">Your message</label>
+        <textarea type="text" id="defaultFormMessageModalEx" class="md-textarea form-control"></textarea>
+
+        <div class="text-center mt-4 mb-2">
+          <button class="btn btn-info">Send
+            <i class="fa fa-send ml-2"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+
+
+input[type='file']{
+display:none;
+}
+
+label{
+color:white;
+height: 60px;
+width: 250px;
+background-color:#f5af09;
+position:absolute;
+margin:auto;
+top:0;
+bottom:0;
+left:0;
+right:0;
+font-size;20px;
+display:flex;
+jusitfy-content:center;
+align-items:center;
+
+}

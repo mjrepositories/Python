@@ -1,0 +1,46 @@
+{%load static%}
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+
+            <a href="{% url 'home-page'%}" style="color: white;"><button class="button" style="vertical-align:middle"><span>Homepage </span></button></a>
+      </li>
+{%if  not user.is_authenticated%}
+        <li class="nav-item">
+            <a href="{% url 'register'%}" style="color: white;"><button class="button" style="vertical-align:middle"><span>Register  </span></button></a>
+        </li>
+        {%endif%}
+        {%if  not user.is_authenticated%}
+        <li class="nav-item">
+            <a href="{% url 'login'%}"  style="color: white;"><button class="button" style="vertical-align:middle"><span>Log in  </span></button></a>
+
+        </li>
+        {%endif%}
+
+              {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a href="{% url 'create_item'%}"  style="color: white;"><button class="buttonlogout" style="vertical-align:middle"><span>Add Item  </span></button></a>
+        </li>
+        {%endif%}
+
+        {%if user.is_authenticated%}
+          <li class="nav-item">
+            <a href="{% url 'offers'%}"  style="color: white;"><button class="buttonlogout" style="vertical-align:middle"><span>My Items  </span></button></a>
+        </li>
+        {%endif%}
+
+
+        {%if user.is_authenticated%}
+        <li class="nav-item">
+            <a href="{% url 'logout'%}"  style="color: white;"><button class="buttonlogout" style="vertical-align:middle"><span>Log out  </span></button></a>
+        </li>
+        {%endif%}
+    </ul>
+              {%if user.is_authenticated%}
+  <a class="navbar-brand" style="color: white;" href=""><b>{{user.email}}</b></a>
+    {%endif%}
+      <img src="{% static 'sheriffy/images/shariffy.png'%}"/>
+  </div>
+
+</nav>

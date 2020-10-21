@@ -1,0 +1,31 @@
+{% extends "sheriffy/base.html" %}
+{% block content %}
+<h1>Edit item details</h1>
+
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <h1 style="color:white;">Description</h1>
+    <div contenteditable>
+    {{form.description}}
+        </div>
+    <h1 style="color:white;">Zone</h1>
+    {{form.zone}}
+    <h1 style="color:white;">Category</h1>
+{{form.category}}
+        <h1 style="color:white;">Category</h1>
+{{form.state}}
+
+    <br>
+    <br>
+      <input type="submit" class="btn btn-info" name="Submit" value="Save changes">
+</form>
+
+<script>
+    const el = document.querySelector('div[contenteditable]');
+
+// Get value from element on input events
+el.addEventListener('input', () => console.log(el.textContent));
+
+</script>
+{%endblock content%}

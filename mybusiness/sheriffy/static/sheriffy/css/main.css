@@ -1,0 +1,163 @@
+
+body {
+  background-color:#607791;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3477eb;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.buttonlogout {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #eb4034;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonlogout span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonlogout span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonlogout:hover span {
+  padding-right: 25px;
+}
+
+.buttonlogout:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#formsetting{
+margin:20px;
+}
+
+#formsetting p:nth-child(even) {
+display: none;
+}
+
+#id_image_set-0-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-1-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-2-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-3-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-4-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-5-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-6-image{
+background:color:blue;
+color:white;
+}
+
+#id_image_set-7-image{
+background:color:blue;
+color:white;
+}
+
+
