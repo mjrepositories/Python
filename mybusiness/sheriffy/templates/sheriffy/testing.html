@@ -87,3 +87,111 @@ jusitfy-content:center;
 align-items:center;
 
 }
+
+
+label[for="id_image_set-0-image"]{
+    visibility: hidden;
+    position: relative;
+}
+label[for="id_image_set-0-image"]:after{
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content:'Load photo';
+}
+
+
+#formsetting p:nth-child(3) {
+display: none;
+}
+
+#formsetting p:nth-child(5) {
+display: none;
+}
+
+#formsetting p:nth-child(7) {
+display: none;
+}
+
+#formsetting p:nth-child(9) {
+display: none;
+}
+
+#formsetting p:nth-child(11) {
+display: none;
+}
+
+#formsetting p:nth-child(13) {
+display: none;
+}
+
+#formsetting p:nth-child(15) {
+display: none;
+}
+
+#formsetting p:nth-child(17) {
+display: none;
+}
+
+.mySlides{
+position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+.sliderButtons{
+position: fixed;
+  top: 60%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+
+
+
+
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3477eb;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

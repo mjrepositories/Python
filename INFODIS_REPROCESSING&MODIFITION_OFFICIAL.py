@@ -5,7 +5,7 @@ import pandas as pd
 
 
 
-time.sleep(120)
+# time.sleep(120)
 browser = webdriver.Chrome()
 # getting to infodis
 
@@ -104,6 +104,7 @@ for infodis_num in shipping:
     row2 = 0
     row3 = 0
 
+
 # FIRST WAY
 #
 #     rows_leg1 = len(browser.find_elements_by_xpath(
@@ -159,7 +160,7 @@ for infodis_num in shipping:
 # SECOND WAY
 
 
-    # #TURNED OFF SERVICE LEVEL
+    # # #TURNED OFF SERVICE LEVEL
     #
     # rows_leg1 = len(browser.find_elements_by_xpath(
     #     '//*[@id="leg1detailsrow"]/td/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/select/option'))
@@ -174,7 +175,7 @@ for infodis_num in shipping:
     # for x in range(1, rows_leg1+1):
     #     looking = browser.find_element_by_xpath(
     #         '//*[@id="leg1detailsrow"]/td/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/select/option[{}]'.format(x))
-    #     #if ('1' in looking.text) and ('10' not in looking.text):
+    #     # if ('1' in looking.text) and ('10' not in looking.text):
     #     if '9' in looking.text:
     #         row1 = x
     #         break
@@ -192,7 +193,7 @@ for infodis_num in shipping:
     # for x in range(1, rows_leg3+1):
     #     looking = browser.find_element_by_xpath(
     #         '//*[@id="leg3detailsrow"]/td/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/select/option[{}]'.format(x))
-    #     #if ('1' in looking.text) and ('10' not in looking.text):
+    #     # if ('1' in looking.text) and ('10' not in looking.text):
     #     if '9' in looking.text:
     #         row3 = x
     #         break
@@ -212,7 +213,7 @@ for infodis_num in shipping:
     #     '//*[@id="leg3detailsrow"]/td/table/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/select/option[{}]'.format(
     #         row3)).click()
     # # #
-    #
+
 
     # opening new tab with modification link
     browser.execute_script("window.open('https://www.infodis.net/philips/modifybooking.asp', '_blank')")

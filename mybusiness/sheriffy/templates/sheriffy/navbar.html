@@ -6,6 +6,10 @@
 
             <a href="{% url 'home-page'%}" style="color: white;"><button class="button" style="vertical-align:middle"><span>Homepage </span></button></a>
       </li>
+        <li class="nav-item">
+
+            <a href="{% url 'all-items'%}" style="color: white;"><button class="button" style="vertical-align:middle"><span>List </span></button></a>
+      </li>
 {%if  not user.is_authenticated%}
         <li class="nav-item">
             <a href="{% url 'register'%}" style="color: white;"><button class="button" style="vertical-align:middle"><span>Register  </span></button></a>

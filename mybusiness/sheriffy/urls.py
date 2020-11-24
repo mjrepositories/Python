@@ -17,7 +17,8 @@ urlpatterns = [
     path('offers',OfferListView.as_view(template_name='sheriffy/my_offers.html'), name = 'offers'),
     path('create_item',views.ItemCreate, name = 'create_item'),
     path('repair/<int:pk>/update', views.ItemUpdateView.as_view(), name='item-update'),
-    path('repair/<int:pk>/delete', views.ItemDeleteView.as_view(), name='item-delete')
+    path('repair/<int:pk>/delete', views.ItemDeleteView.as_view(), name='item-delete'),
+    path('details/<int:pk>',views.Details,name = 'details'),
+    path('all_offers',views.AllItems,name='all-items')
     # path('service',views.create_service, name = 'service-page'),
-    ] \
-              # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,7 +7,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/main.css?{% now 'U' %}">
-
+    {% if '/create_item' == request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/create_item.css?{% now 'U' %}">
+    {%endif%}
+    {% if '/details/' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/item_page.css?{% now 'U' %}">
+    {%endif%}
 </head>
 <body>
 <div id="page-container">

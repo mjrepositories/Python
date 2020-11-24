@@ -6,7 +6,8 @@
     <h1>What's on shAIR today?</h1>
   </div>
 </div>
-{%for offer in offers%}
+<div>
+{%for offer,photo in looping_list%}
 <!-- <article class="media content-section">-->
 <!--          <img class="rounded-circle article-img" src="">-->
 <!--          <div class="media-body">-->
@@ -21,32 +22,27 @@
 
 
 <div class="mySlides">
-  <h1>{{offer.thing}}</h1>
+<!--    <a href="https://www.w3schools.com">-->
+      <img id="image_home" src="{{photo.image.url}}">
+<!--    </a>-->
+    <div class="col-lg-4 container justify-content-center" id="for_name">
+      <div id="item_naming" class="col text-center">
+            <a href="https://www.w3schools.com" style="color:white;" class="hovering"><span id="choose_me">{{offer.thing}}</span><span id='offer_check'>Check offer</span></a>
+      </div>
+    </div>
 </div>
 
 
 
 {%endfor%}
-<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
-<script>
-  var slideIndex = 1;
-showDivs(slideIndex);
+      <div class="sliderButtons">
+        <button id='button_back' class="w3-button w3-display-left btn-dark" onclick="plusDivs(-1)">&#10094;</button>
+        <button id='button_next' class="w3-button w3-display-right btn-dark" onclick="plusDivs(+1)">&#10095;</button>
+      </div>
+  </div>
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length} ;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
-</script>
+<cite>
+  Maciej
+<cite>
+<script src="static/sheriffy/js/slider.js?{% now 'U' %}"></script>
 {%endblock content%}
-

@@ -81,4 +81,4 @@ zone = 'Slaskie',category= 'Dom',state = 'Nowe',Status = 'Aktywne'
 '''
 class Image(models.Model):
     item = models.ForeignKey(Item,null=True,on_delete=models.CASCADE)
-    image = models.ImageField(null=True,blank=True)
+    image = models.ImageField(null=True,blank=True,upload_to='item_photos')

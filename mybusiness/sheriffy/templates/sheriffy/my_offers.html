@@ -1,12 +1,13 @@
 {% extends "sheriffy/base.html" %}
 
 {% block content %}
-<table class="table table-hover table-striped table-responsive-md btn-table">
+<table id='items_table' class="table table-hover table-striped table-responsive-md btn-table">
   <thead>
     <tr>
       <th scope="col">Item</th>
-      <th scope="col">Change content/status</th>
-      <th scope="col">Delete Item</th>
+      <th scope="col">Changing Content/Status</th>
+      <th scope="col">Item Page</th>
+      <th scope="col">Deleting Item</th>
     </tr>
   </thead>
   <tbody>
@@ -15,10 +16,13 @@
 
       <td>{{item.thing}}</td>
       <td>
-        <a href="{% url 'item-update' item.id %}"><button type="button" class="btn btn-teal btn-rounded btn-primary waves-effect">Button</button></a>
+        <a href="{% url 'item-update' item.id %}"><button type="button" class="btn btn-teal btn-rounded btn-primary waves-effect">Let's change it</button></a>
       </td>
       <td>
-        <a href="{% url 'item-delete' item.id %}"><button type="button" class="btn btn-teal btn-rounded btn-primary waves-effect">Button</button></a>
+        <a href="{% url 'details' item.id %}"><button type="button" class="btn btn-teal btn-rounded btn-primary waves-effect">How I look?</button></a>
+      </td>
+      <td>
+        <a href="{% url 'item-delete' item.id %}"><button type="button" class="btn btn-teal btn-rounded btn-primary waves-effect">Delete me</button></a>
       </td>
     </tr>
   {%endfor%}

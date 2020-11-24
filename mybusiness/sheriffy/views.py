@@ -16,8 +16,29 @@ def home_view(request):
     ids = [x.id for x in offers_all]
     ids_to_show = random.sample(ids,3)
     offers = Item.objects.filter(id__in=ids_to_show)
-    context = {'offers':offers}
+    photos = Image.objects.filter(item__id__in=ids_to_show)
+    to_exclude=[]
+    full_list = []
+    for counter,image in enumerate(photos):
+        full_list.append(image.id)
+        print(image.id)
+        print(image.item.id)
+        print(photos[counter].item.id)
+        if counter != 0:
+            if image.item.id == photos[counter-1].item.id:
+                print('i am here')
+                to_exclude.append(image.id)
+    img_to_show = [x for x in full_list if x not in to_exclude]
+    filtered_photos = photos.filter(id__in=img_to_show)
+    print(photos)
+    print(filtered_photos)
+    looping_list = zip(offers,filtered_photos)
+
+    context = {'looping_list':looping_list}
     return render(request,'sheriffy/home_page.html',context)
+
+def Maciej():
+    pass
 
 def register(request):
     if request.method == "POST":
@@ -59,6 +80,7 @@ class OfferListView(ListView):
         print(profile)
         # gett all offers that were registeredd by this user
         context['items'] = Item.objects.filter(owner=profile)
+        context['photos'] = len(Image.objects.all())
         print(context['items'])
         return context
 
@@ -72,11 +94,16 @@ def ItemCreate(request):
     formset = ItemFormSet()
     if request.method == 'POST':
         form = ItemForm(request.POST)
+        item = Item.objects.last()
+        formset = ItemFormSet(request.POST, request.FILES, instance=item)
         print(request.POST)
-        if form.is_valid():
+        if form.is_valid() and formset.is_valid():
             form.save()
             item = Item.objects.filter(owner=profile).last()
             print(item)
+            formset = ItemFormSet(request.POST,request.FILES,instance=item)
+            print(formset)
+            formset.save()
             return redirect('/offers')
         else:
             print(form.errors)
@@ -110,3 +137,14 @@ class ItemUpdateView(UpdateView):
         form = super(ItemUpdateView, self).get_form()
         form.fields['description'].widget = forms.Textarea(attrs={'wrap':'hard'})
         return form
+
+def Details(request,pk):
+    item = Item.objects.get(pk=pk)
+    photos = item.image_set.all()
+    context = {'photos':photos,'item':item}
+    return render(request,'sheriffy/item_page.html',context)
+
+def AllItems(request):
+    stuff = Item.objects.all()
+    context = {'stuff':stuff}
+    return render(request,'sheriffy/all_offers.html',context)

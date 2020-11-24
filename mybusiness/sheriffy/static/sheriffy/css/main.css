@@ -1,3 +1,4 @@
+html{ overflow-y: scroll;}
 
 body {
   background-color:#607791;
@@ -112,52 +113,78 @@ body {
   right: 0;
 }
 
-#formsetting{
-margin:20px;
+
+
+.sliderButtons{
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
-#formsetting p:nth-child(even) {
-display: none;
-}
-
-#id_image_set-0-image{
-background:color:blue;
+#items_table th{
 color:white;
 }
 
-#id_image_set-1-image{
-background:color:blue;
+#items_table td{
 color:white;
 }
-
-#id_image_set-2-image{
-background:color:blue;
-color:white;
+#image_home {
+width:300px;
+height:300px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom:10px;
 }
 
-#id_image_set-3-image{
-background:color:blue;
-color:white;
+#button_back {
+margin-right:10px;
+width: 80px;
+height:40px;
 }
 
-#id_image_set-4-image{
-background:color:blue;
-color:white;
+#button_next {
+margin-left:10px;
+width: 80px;
+height:40px;
 }
 
-#id_image_set-5-image{
-background:color:blue;
+#item_naming {
 color:white;
+background-color:blue;
+
 }
 
-#id_image_set-6-image{
-background:color:blue;
-color:white;
+#offer_check{
+font-size:20px;
 }
 
-#id_image_set-7-image{
-background:color:blue;
-color:white;
+#choose_me{
+font-size:20px;
 }
 
+#for_name{
+margin-bottom:10px;
+width:200px;
+}
 
+ .hovering #offer_check{
+    opacity:0;
+    color:white;
+    transition:opacity 1s;
+  }
+
+.hovering #choose_me{
+  position: absolute;
+  opacity:1
+  color:white;
+  transition:opacity 1s;
+}
+
+ .hovering:hover #choose_me{
+  opacity:0;
+}
+
+.hovering:hover #offer_check{
+  opacity:1;
+}
