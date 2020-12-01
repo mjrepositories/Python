@@ -1,0 +1,48 @@
+{% extends "sheriffy/base.html" %}
+
+{% block content %}
+<div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+  <div class="col text-center" style="background:red;color: white;">
+    <h1>What's on shAIR today?</h1>
+  </div>
+</div>
+<div>
+{%for offer,photo in looping_list%}
+<!-- <article class="media content-section">-->
+<!--          <img class="rounded-circle article-img" src="">-->
+<!--          <div class="media-body">-->
+<!--            <div class="article-metadata">-->
+<!--              <a class="mr-2" href="">Hello</a>-->
+<!--              <small class="text-muted">{{ offer.time_registered|date:"F d, Y" }}</small>-->
+<!--            </div>-->
+<!--            <h2><a class="article-title" href="">Here is the title</a></h2>-->
+<!--            <p class="article-content">let's check</p>-->
+<!--          </div>-->
+<!--        </article>-->
+
+
+<div class="mySlides">
+<!--    <a href="https://www.w3schools.com">-->
+      <img id="image_home" src="{{photo.image.url}}">
+<!--    </a>-->
+    <div class="col-lg-4 container justify-content-center" id="for_name">
+      <div id="item_naming" class="col text-center">
+            <a href="https://www.w3schools.com" style="color:white;" class="hovering"><span id="choose_me">{{offer.thing}}</span><span id='offer_check'>Check offer</span></a>
+      </div>
+    </div>
+</div>
+
+
+
+{%endfor%}
+      <div class="sliderButtons">
+        <button id='button_back' class="w3-button w3-display-left btn-dark" onclick="plusDivs(-1)">&#10094;</button>
+        <button id='button_next' class="w3-button w3-display-right btn-dark" onclick="plusDivs(+1)">&#10095;</button>
+      </div>
+  </div>
+
+<cite>
+  Maciej
+<cite>
+<script src="static/sheriffy/js/slider.js?{% now 'U' %}"></script>
+{%endblock content%}

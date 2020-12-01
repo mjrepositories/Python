@@ -180,3 +180,46 @@
 [0902/225034.252:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir18092_197283383\Crashpad: The system cannot find the file specified. (0x2)
 [0903/201928.787:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir3712_452604452\Crashpad: The system cannot find the file specified. (0x2)
 [0903/204327.849:ERROR:crash_report_database_win.cc(558)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir4128_1771662295\Crashpad: The system cannot find the file specified. (0x2)
+[1009/162017.506:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/065925.927:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/130648.622:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/140413.371:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/141755.755:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/191154.418:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/193055.328:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/062759.542:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/071153.920:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/224854.981:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1019/135023.311:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1020/074131.399:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1020/105849.229:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1020/214128.051:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1022/203100.933:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir5996_1678391253\Crashpad: The system cannot find the file specified. (0x2)
+[1023/100647.917:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1023/144636.030:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1023/150840.529:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1026/061749.652:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1027/112231.837:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1030/143615.460:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1102/144018.213:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1102/203426.001:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1102/203426.064:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1103/202805.058:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1103/202805.120:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1104/202521.826:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1104/202521.911:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1104/203912.900:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1104/203912.936:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1105/204843.323:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1105/205208.151:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1105/205208.229:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1105/210618.069:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1106/210830.444:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1106/210830.617:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1106/211925.108:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[1106/211925.212:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1109/100627.158:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1112/212445.515:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir788_24887958\Crashpad: The system cannot find the file specified. (0x2)
+[1113/204437.183:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir15104_735579626\Crashpad: The system cannot find the file specified. (0x2)
+[1119/212156.044:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir7708_154516385\Crashpad: The system cannot find the file specified. (0x2)
+[1120/210701.266:ERROR:crash_report_database_win.cc(587)] GetFileAttributes C:\Users\310295~1\AppData\Local\Temp\scoped_dir15528_56711656\Crashpad: The system cannot find the file specified. (0x2)

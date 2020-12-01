@@ -46,9 +46,9 @@ email = subfolder.Items
 x=len(email)
 #sort all emails that we have in the folder
 email.Sort('ReceivedTime')
-first=x-7
+first=x-3
 #starts the loop through the emails
-for infodis in range(8):
+for infodis in range(4):
 #checks the number of email after sorting and extract data on it
     message = email.Item(first + infodis)
     subjectofemail=message.subject
@@ -87,6 +87,7 @@ for dirpath,dirnames,filenames in os.walk(os.curdir):
 os.remove(r"C:\Users\310295192\Desktop\SHIT HAPPENING\Ruurd files\complex_report.zip")
 os.remove(r"C:\Users\310295192\Desktop\SHIT HAPPENING\Ruurd files\Extracted\Complex report - missing rates.zip")
 
+
 # reading data from csv. Separator is ;
 dash = pd.read_csv(naming_file,sep = ';',dtype={'Port of loading':str,'Port of discharge':str,
                                                     'Container number':str,'Bill of lading':str,
@@ -108,8 +109,9 @@ filt_dash = dash['Shipment'].str.contains('PNAM',regex=True,na=False)
 dash = dash[~filt_dash]
 
 filt_dash_2 = dash['Shipment Booker Name'].isin(['Biazet LTL','Biazet FTL','Philips DC Venray',
-                                                  'Philips DC Corbas','Philips DC Corby','Philips DC Batta'])
-
+                                                  'Philips DC Corbas','Philips DC Corby','Philips DC Batta',
+                                                 'UPS Warehouse Roermond Express'])
+# added UPS above as something was happening on road
 dash = dash[~filt_dash_2]
 # dash.to_excel(r"C:\Users\310295192\Desktop\whatthefuck.xlsx", sheet_name='FCL rates', index=False)
 # FUCkING FORMAT TO BE CHEckED
@@ -119,6 +121,8 @@ print(dash['Total costs Sales'])
 dash = dash[filt_dash_3]
 print(dash)
 print('dash_3')
+
+
 # switching names of domains to more readable format
 dash['Domain Code'].replace({'PHILIPSDCN':'DC North',"PHILIPSIND":"India",
                     "PHILIPSDCS":"DC South",'PHILIPSDCE':"DC East",

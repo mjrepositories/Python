@@ -1,0 +1,61 @@
+{% extends "sheriffy/base.html" %}
+{%load static%}
+{% block content %}
+
+
+<div class="my-2 mr-4" style="display:inline-block;width:500px;">
+  <section>
+    <div class="align-items-center">
+      <div>
+        <div class="card">
+          <div class="card-header white">
+            <h4 class="font-weight-bold mb-0">{{item.thing}}</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              {{item.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+ <div class="my-2 mr-4" style="display:inline-block">
+  <section>
+    <div class="align-items-center">
+      <div>
+        <div class="card">
+          <div class="card-header white">
+            <h4 class="font-weight-bold mb-0">Kontakt</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              {{item.owner.name}}
+            </p>
+              <p class="card-text">
+                  Telefon: {{item.owner.phone}}
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ </div>
+<div>
+{%for image in photos%}
+<div class="my-2">
+ <img class="myImg" src="{{ image.image.url }}">
+      </div>
+
+<!-- The Modal -->
+<div class="myModal modal" >
+  <span class="close">&times;</span>
+  <img class="modal-content img">
+</div>
+{%endfor%}
+  </div>
+
+<script src="{%  static 'sheriffy/js/item_page.js' %}"></script>
+{%endblock content%}

@@ -1,0 +1,85 @@
+{% extends "sheriffy/base.html" %}
+{%load static%}
+{% block content %}
+
+<div class="peach-gradient" style="display:flex">
+    <div style="display:inline-block">
+  <form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+     <label for="defaultFormNameModalEx">Item for sharing</label>
+      <br>
+{{form.thing}}
+
+     <br>
+      <label for="defaultFormMessageModalEx">Describe your thing</label>
+      <br>
+{{form.description}}
+
+     <br>
+     <label for="defaultFormEmailModalEx">Region</label>
+      <br>
+{{form.zone}}
+
+     <br>
+
+     <label for="defaultFormSubjectModalEx">Category</label>
+      <br>
+{{form.category}}
+
+     <br>
+     <label for="defaultFormSubjectModalEx">New or used?</label>
+      <br>
+{{form.state}}
+{{form.owner.as_hidden}}
+{{form.status.as_hidden}}
+     </div>
+    <br>
+{{ form.errors }}
+    <div id="formsetting" style="display:inline-block">
+        {{ formset.management_form }}
+{{formset}}
+    <div class="container_image_button">
+    <button type="button" id="custom_button_0">Choose a file</button>
+    <span id="custom_text_0">No file chosen</span>
+    </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_1">Choose a file</button>
+    <span id="custom_text_1">No file chosen</span>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_2">Choose a file</button>
+    <span id="custom_text_2">No file chosen</span>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_3">Choose a file</button>
+    <span id="custom_text_3">No file chosen</span>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_4">Choose a file</button>
+    <span id="custom_text_4">No file chosen</span>
+        </div>
+        <div class="container_image_button">
+            <button type="button" id="custom_button_5">Choose a file</button>
+            <span id="custom_text_5">No file chosen</span>
+        </div>
+
+        <div class="container_image_button">
+            <button type="button" id="custom_button_6">Choose a file</button>
+            <span id="custom_text_6">No file chosen</span>
+        </div>
+
+        <div class="container_image_button">
+            <button type="button" id="custom_button_7">Choose a file</button>
+            <span id="custom_text_7">No file chosen</span>
+        </div>
+</div>
+</div>
+
+ <input type="submit" class="btn btn-info" name="Submit" value="Let's share it">
+</form>
+
+
+
+<script src="static/sheriffy/js/file_buttons.js?{% now 'U' %}"></script>
+
+{%endblock content%}

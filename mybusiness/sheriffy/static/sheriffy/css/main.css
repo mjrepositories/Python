@@ -1,0 +1,190 @@
+html{ overflow-y: scroll;}
+
+body {
+  background-color:#607791;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #3477eb;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.buttonlogout {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #eb4034;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonlogout span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonlogout span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonlogout:hover span {
+  padding-right: 25px;
+}
+
+.buttonlogout:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+.sliderButtons{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#items_table th{
+color:white;
+}
+
+#items_table td{
+color:white;
+}
+#image_home {
+width:300px;
+height:300px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-bottom:10px;
+}
+
+#button_back {
+margin-right:10px;
+width: 80px;
+height:40px;
+}
+
+#button_next {
+margin-left:10px;
+width: 80px;
+height:40px;
+}
+
+#item_naming {
+color:white;
+background-color:blue;
+
+}
+
+#offer_check{
+font-size:20px;
+}
+
+#choose_me{
+font-size:20px;
+}
+
+#for_name{
+margin-bottom:10px;
+width:200px;
+}
+
+ .hovering #offer_check{
+    opacity:0;
+    color:white;
+    transition:opacity 1s;
+  }
+
+.hovering #choose_me{
+  position: absolute;
+  opacity:1
+  color:white;
+  transition:opacity 1s;
+}
+
+ .hovering:hover #choose_me{
+  opacity:0;
+}
+
+.hovering:hover #offer_check{
+  opacity:1;
+}

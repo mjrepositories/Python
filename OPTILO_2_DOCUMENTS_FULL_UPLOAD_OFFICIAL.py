@@ -47,9 +47,9 @@ dg_num = []
 
 # sort all emails that we have in the folder
 email.Sort('ReceivedTime')
-first = x - 100 + 1
+first = x - 10 + 1
 # starts the loop through the emails
-for dg in range(100):
+for dg in range(10):
     # assigns proper data for mail scrapping
     message = email.Item(first + dg)
     bodyofemail = message.body
@@ -67,7 +67,7 @@ for dg in range(100):
         logger.info(f'email: "{subjectofemail}" will be verified as for attachments')
         # now we will check if the document was already downloaded
         for attach in message.Attachments:
-            declaration = attach.FileName[0:9]
+            declaration = attach.FileName[0:10]
             reading = open(r'C:\Users\310295192\Desktop\Python\Projects\DG_DECLARATION\DG_DECLARATION.txt', 'r')
             # checks the content of the file
             opening = reading.read()
@@ -124,7 +124,7 @@ if dg_num:
     #loops through all files that are available
     for every in filenames:
         try:
-            line = every[0:9]
+            line = every[0:10]
             # finding order tab
             # order = browser.find_element_by_id('menu-258839')
             # order = browser.find_element_by_id('menu-259556') update 2019-06-15
@@ -152,7 +152,7 @@ if dg_num:
             # searching = browser.find_element_by_id('action[690000217][3971]') update 2019-06-15
             # searching = browser.find_element_by_id('action[690000217][4005]') update on 2019-11-18
             # searching = browser.find_element_by_id('action[690000217][4051]')
-            searching = browser.find_element_by_name('action[690000217][4196]')
+            searching = browser.find_element_by_name('action[690000217][4195]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -178,9 +178,9 @@ if dg_num:
             time.sleep(2)
             print(row_count)
             # finding document type
-            document = browser.find_element_by_xpath(f"//table[@id='DP690000322']/tbody/tr[{row_count}]/td[5]/select/option[30]")
+            # document = browser.find_element_by_xpath(f"//table[@id='DP690000322']/tbody/tr[{row_count}]/td[5]/select/option[30]")
             time.sleep(6)
-            document.click()
+            # document.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[690000322][Z][save]')
             saving.click()
@@ -410,7 +410,7 @@ if mjb_num:
             # searching = browser.find_element_by_id('action[650000161][3242]') update 2019-06-15
             # searching = browser.find_element_by_id('action[650000161][3269]') updated on 2019-11-18
             # searching = browser.find_element_by_id('action[650000161][3275]')
-            searching = browser.find_element_by_name('action[650000161][3367]')
+            searching = browser.find_element_by_name('action[650000161][3366]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -440,10 +440,10 @@ if mjb_num:
                 # if names match - select proper document type
                 if document[0:10] == line:
                     # selectiong document
-                    sel_doc = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{rowing}]/td[5]/select/option[52]")
+                    # sel_doc = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{rowing}]/td[5]/select/option[52]")
                     time.sleep(2)
                     # clicking document
-                    sel_doc.click()
+                    # sel_doc.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[650000192][Z][save]')
             saving.click()
@@ -656,7 +656,7 @@ if len(mjb_num) > 0:
             # searching = browser.find_element_by_id('action[650000161][3242]') update 2019-06-15
             # searching = browser.find_element_by_id('action[650000161][3269]') updated on 2019-11-18
             # searching = browser.find_element_by_id('action[650000161][3275]')
-            searching = browser.find_element_by_name('action[650000161][3367]')
+            searching = browser.find_element_by_name('action[650000161][3366]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -682,9 +682,9 @@ if len(mjb_num) > 0:
             time.sleep(2)
             print(row_count)
             # finding document type
-            document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
+            # document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
             time.sleep(6)
-            document.click()
+            # document.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[650000192][Z][save]')
             saving.click()
@@ -892,7 +892,7 @@ if len(mjb_num) > 0:
             # searching = browser.find_element_by_id('action[650000161][3242]') update 2019-06-15
             # searching = browser.find_element_by_id('action[650000161][3269]') updated on 2019-11-18
             # searching = browser.find_element_by_id('action[650000161][3275]')
-            searching = browser.find_element_by_name('action[650000161][3367]')
+            searching = browser.find_element_by_name('action[650000161][3366]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -918,9 +918,9 @@ if len(mjb_num) > 0:
             time.sleep(2)
             print(row_count)
             # finding document type
-            document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
+            # document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
             time.sleep(6)
-            document.click()
+            # document.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[650000192][Z][save]')
             saving.click()
@@ -1240,7 +1240,7 @@ if mjb_num:
             # searching = browser.find_element_by_id('action[650000161][3242]') update 2019-06-15
             # searching = browser.find_element_by_id('action[650000161][3269]') updated on 2019-11-18
             # searching = browser.find_element_by_id('action[650000161][3275]')
-            searching = browser.find_element_by_name('action[650000161][3367]')
+            searching = browser.find_element_by_name('action[650000161][3366]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -1266,9 +1266,9 @@ if mjb_num:
             time.sleep(2)
             print(row_count)
             # finding document type
-            document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
+            # document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
             time.sleep(6)
-            document.click()
+            # document.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[650000192][Z][save]')
             saving.click()
@@ -1519,7 +1519,7 @@ if mjb_num:
             # searching = browser.find_element_by_id('action[650000161][3242]') update 2019-06-15
             # searching = browser.find_element_by_id('action[650000161][3269]') updated on 2019-11-18
             # searching = browser.find_element_by_id('action[650000161][3275]')
-            searching = browser.find_element_by_name('action[650000161][3367]')
+            searching = browser.find_element_by_name('action[650000161][3366]')
             searching.click()
             # finding button button and clicking it
             time.sleep(2)
@@ -1545,9 +1545,9 @@ if mjb_num:
             time.sleep(2)
             print(row_count)
             # finding document type
-            document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
+            # document = browser.find_element_by_xpath(f"//table[@id='DP650000192']/tbody/tr[{row_count}]/td[5]/select/option[24]")
             time.sleep(4)
-            document.click()
+            # document.click()
             time.sleep(2)
             saving = browser.find_element_by_name('action_dp[650000192][Z][save]')
             saving.click()

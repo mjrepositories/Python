@@ -1,0 +1,32 @@
+{% extends "sheriffy/base.html" %}
+{% block content %}
+<content>
+<div class="col-md-6 login-form-2 mt-2">
+    <form method="POST" action="{%url 'login'%}">
+    {%csrf_token%}
+        <h3 style="color:white; padding-bottom:20px;">Let's share some stuff! Ready?</h3>
+            <div class="form-group">
+                <input type="text" class="form-control"  name="username" placeholder="Username" value="" />
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btnSubmit" value="Login" />
+            </div>
+            {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-primary" role="alert">
+                Wrong username or password. Maybe some typo? Let's try again
+                </div>
+        {% endfor %}
+
+{% endif %}
+            <div class="form-group">
+                <a href="#" class="btnForgetPwd text-white" value="Login">Forgot Password?</a>
+            </div>
+    </form>
+</div>
+    </content>
+
+{%endblock content%}
