@@ -29,7 +29,7 @@ print(screen_height)
 print(screen_width)
 
 
-background_image =tk.PhotoImage(file=r'C:\Users\310295192\Desktop\Others\batkinter.png')
+background_image =tk.PhotoImage(file=r"C:\Users\Maciek\Downloads\bat.png")
 background_label = tk.Label(root,image=background_image)
 background_label.place(relwidth=1,relheight=1)
 

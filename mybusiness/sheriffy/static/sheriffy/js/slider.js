@@ -30,3 +30,26 @@ function showDivs(n) {
 //tag.innerHTML = tag_text
 //})
 
+
+// 37 is left
+// 39 is right
+
+let but_back = document.getElementById('button_back')
+let but_next = document.getElementById('button_next')
+
+let doc = document.body
+
+doc.addEventListener("keyup", function(event) {
+  if (event.keyCode === 37) {
+   event.preventDefault();
+   document.getElementById("button_back").click();
+  }
+});
+
+doc.addEventListener("keyup", function(event) {
+  if (event.keyCode === 39) {
+   event.preventDefault();
+   document.getElementById("button_next").click();
+  }
+});
+

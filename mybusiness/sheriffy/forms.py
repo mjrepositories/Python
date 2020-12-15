@@ -16,7 +16,7 @@ class ItemForm(ModelForm):
 
     class Meta:
         model = Item
-        fields = ['thing','description','zone','category','state','status','owner']
+        fields = ['thing','description','city','zone','category','state','status','owner']
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()

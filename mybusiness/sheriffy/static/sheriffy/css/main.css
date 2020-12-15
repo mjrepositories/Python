@@ -135,6 +135,7 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 margin-bottom:10px;
+border-radius:10px;
 }
 
 #button_back {
@@ -152,6 +153,7 @@ height:40px;
 #item_naming {
 color:white;
 background-color:blue;
+border-radius: 10px;
 
 }
 
@@ -166,8 +168,13 @@ font-size:20px;
 #for_name{
 margin-bottom:10px;
 width:200px;
+
 }
 
+.hovering{
+display: flex;
+justify-content: center;
+}
  .hovering #offer_check{
     opacity:0;
     color:white;
@@ -187,4 +194,32 @@ width:200px;
 
 .hovering:hover #offer_check{
   opacity:1;
+}
+
+.item_shared{
+height:200px;
+background-color:white;
+margin:10px;
+overflow:hidden;
+position: relative;
+}
+
+.image_shared{
+float:left;
+}
+
+.details_shared{
+overflow:hidden;
+height:100%;
+padding:10px;
+}
+
+.place_shared{
+position:absolute;
+bottom:10px;
+}
+
+#item_all_view{
+width:200px;
+height:200px;
 }

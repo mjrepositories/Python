@@ -6,29 +6,23 @@
     <div style="display:inline-block">
   <form method="POST" enctype="multipart/form-data">
     {%csrf_token%}
-     <label for="defaultFormNameModalEx">Item for sharing</label>
+     <label class="details">Item for sharing</label>
       <br>
 {{form.thing}}
-
-     <br>
-      <label for="defaultFormMessageModalEx">Describe your thing</label>
-      <br>
+      <label class="details">Describe your thing</label>
 {{form.description}}
-
      <br>
-     <label for="defaultFormEmailModalEx">Region</label>
-      <br>
+           <label class="details">City</label>
+{{form.city}}
+     <br>
+
+     <label class="details">Region</label>
 {{form.zone}}
-
      <br>
-
-     <label for="defaultFormSubjectModalEx">Category</label>
-      <br>
+     <label class="details">Category</label>
 {{form.category}}
-
      <br>
-     <label for="defaultFormSubjectModalEx">New or used?</label>
-      <br>
+     <label class="details">New or used?</label>
 {{form.state}}
 {{form.owner.as_hidden}}
 {{form.status.as_hidden}}
@@ -42,6 +36,9 @@
     <button type="button" id="custom_button_0">Choose a file</button>
     <span id="custom_text_0">No file chosen</span>
     </div>
+        <div id="indicator">
+            <h3><b>< This will be your main photo</b></h3>
+</div>
         <div class="container_image_button">
         <button type="button" id="custom_button_1">Choose a file</button>
     <span id="custom_text_1">No file chosen</span>

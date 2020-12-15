@@ -8,7 +8,7 @@ import random
 from django.views.generic import ListView,DeleteView,UpdateView
 from django import forms
 from django.forms import formset_factory,modelformset_factory,inlineformset_factory
-
+from .filters import ItemFilter
 # Create your views here.
 
 def home_view(request):
@@ -146,5 +146,30 @@ def Details(request,pk):
 
 def AllItems(request):
     stuff = Item.objects.all()
-    context = {'stuff':stuff}
+    offers_all = Item.objects.all()
+    ids = [x.id for x in offers_all]
+
+    offers = Item.objects.filter(id__in=ids)
+    photos = Image.objects.filter(item__id__in=ids)
+    to_exclude=[]
+    full_list = []
+    for counter,image in enumerate(photos):
+        full_list.append(image.id)
+        print(image.id)
+        print(image.item.id)
+        print(photos[counter].item.id)
+        if counter != 0:
+            if image.item.id == photos[counter-1].item.id:
+                print('i am here')
+                to_exclude.append(image.id)
+    img_to_show = [x for x in full_list if x not in to_exclude]
+    filtered_photos = photos.filter(id__in=img_to_show)
+    print(photos)
+    print(filtered_photos)
+    looping_list = zip(offers,filtered_photos)
+
+    item_filter = ItemFilter(request.GET, queryset=offers)
+
+
+    context = {'looping_list':looping_list,'filter':item_filter}
     return render(request,'sheriffy/all_offers.html',context)

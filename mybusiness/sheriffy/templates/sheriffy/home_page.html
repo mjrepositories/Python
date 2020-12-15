@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
-  <div class="col text-center" style="background:red;color: white;">
+  <div class="col text-center" style="background:red;color: white;border-radius: 50px 20px;">
     <h1>What's on shAIR today?</h1>
   </div>
 </div>
@@ -27,7 +27,7 @@
 <!--    </a>-->
     <div class="col-lg-4 container justify-content-center" id="for_name">
       <div id="item_naming" class="col text-center">
-            <a href="https://www.w3schools.com" style="color:white;" class="hovering"><span id="choose_me">{{offer.thing}}</span><span id='offer_check'>Check offer</span></a>
+            <a href="{% url 'details' offer.id %}" style="color:white;" class="hovering"><span id="choose_me">{{offer.thing}}</span><span id='offer_check'>Check offer</span></a>
       </div>
     </div>
 </div>
@@ -41,8 +41,6 @@
       </div>
   </div>
 
-<cite>
-  Maciej
-<cite>
+
 <script src="static/sheriffy/js/slider.js?{% now 'U' %}"></script>
 {%endblock content%}

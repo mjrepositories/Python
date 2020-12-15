@@ -1,5 +1,30 @@
 {% extends "sheriffy/base.html" %}
 {%load static%}
 {% block content %}
+<div id="filtering" style="color:white;text-align:center;font-size:30px;">
+    <form method="GET">
+    {{filter.form.thing}}
+        <button type="submit">Search</button>
+    </form>
+</div>
+{%for offer,photo in looping_list%}
+<div class="item_shared">
+    <div class="image_shared"><img id ='item_all_view' src="{{photo.image.url}}"></div>
+    <div class="details_shared">
+        <a href="{% url 'details' offer.id %}"><h1>{{offer.thing}}</h1></a>
+        <div class="place_shared">
+    {{offer.time_registered}}
+        {{offer.city}}
+    {{offer.zone}}
+        </div>
+</div>
+</div>
+{%endfor%}
+<div class="item_shared">
+
+</div>
+<div class="item_shared">
+
+</div>
 
 {%endblock content%}

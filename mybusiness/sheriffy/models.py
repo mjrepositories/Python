@@ -71,6 +71,7 @@ class Item(models.Model):
     owner = models.ForeignKey(Profile,null = True,on_delete=models.CASCADE)
     thing = models.CharField(max_length=50,null=True)
     description = models.CharField(max_length=1000,null=True)
+    city = models.CharField(max_length=25,null=True)
     zone = models.CharField(max_length=20,null=True,choices=Zones)
     category = models.CharField(max_length=25,null=True,choices=Categories)
     state = models.CharField(max_length=10,null=True,choices=States)

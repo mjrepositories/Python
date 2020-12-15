@@ -1,5 +1,5 @@
 //Taking care of button 0
-
+let main_photo = document.getElementById('indicator')
 const realFileBtn_0 = document.getElementById('id_image_set-0-image');
 const customBtn_0 = document.getElementById('custom_button_0');
 const customText_0 = document.getElementById('custom_text_0');
@@ -12,6 +12,7 @@ realFileBtn_0.addEventListener('change',function(){
     if (realFileBtn_0.value){
         customText_0.innerHTML = realFileBtn_0.value.split('\\')[realFileBtn_0.value.split('\\').length-1];
         customText_0.style.display = 'inline'
+        main_photo.style.display = 'none'
     }
     else {
         customText_0.innerHTML =  'No file chosen'

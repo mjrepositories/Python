@@ -221,3 +221,14 @@ display:none;
   .container_image_button{
   margin:5px;
   }
+
+  label.details{
+  display:block;
+  }
+
+  #indicator{
+  position:absolute;
+  left: 490px;
+  top:260px;
+  color: white;
+ }

@@ -13,7 +13,7 @@
           </div>
           <div class="card-body">
             <p class="card-text">
-              {{item.description}}
+              <b>{{item.description}}</b>
             </p>
           </div>
         </div>
@@ -32,10 +32,10 @@
           </div>
           <div class="card-body">
             <p class="card-text">
-              {{item.owner.name}}
+              Rzecz udostępnia:<br> <h4>{{item.owner.name}}</h4>
             </p>
               <p class="card-text">
-                  Telefon: {{item.owner.phone}}
+                Telefon: <br> <h4>{{item.owner.phone}}</h4>
               </p>
           </div>
         </div>
@@ -43,7 +43,7 @@
     </div>
   </section>
  </div>
-<div>
+<div style="position:absolute;top:400px;">
 {%for image in photos%}
 <div class="my-2">
  <img class="myImg" src="{{ image.image.url }}">
