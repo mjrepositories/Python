@@ -1,0 +1,40 @@
+{% extends "documents/base.html" %}
+{% block content %}
+
+<div class="charting">
+<canvas id="myChart"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+        ctx.canvas.width = 400;
+        ctx.canvas.height = 600;
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{cost_names|safe}},
+        datasets: [{
+            label: 'Monthly cost of house',
+            backgroundColor: ['#A92C1F','#63FA48','#63FA48','#63FA48','#63FA48','#63FA48','#63FA48'],
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{costs|safe}}
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    'onClick' : function (evt, item) {
+                        console.log ('legend onClick', evt);
+                        console.log('legd item', item);
+                        let x = item[0]._index
+                        urls = {{urls|safe}};
+                        window.location.href = urls[x];
+                    }
+    }
+});
+</script>
+{%endblock content%}

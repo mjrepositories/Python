@@ -1,3 +1,5 @@
+let con = document.getElementById('footer')
+
 const modals = document.querySelectorAll('.myModal')
 
 const images = document.querySelectorAll('.myImg')
@@ -14,6 +16,10 @@ for (let i = 0; i <= modals_counter; ++i) {
     // Get the modal
     var modal = document.getElementsByClassName("myModal")[i];
 
+    modal.onclick = function(){
+    modal.style.display = "none";
+    }
+
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementsByClassName("myImg")[i];
     var modalImg = document.getElementsByClassName("img")[i];
@@ -22,6 +28,7 @@ for (let i = 0; i <= modals_counter; ++i) {
       modalImg.src = this.src;
 
     }
+
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[i];
@@ -32,5 +39,11 @@ for (let i = 0; i <= modals_counter; ++i) {
     }
 
 }
+
+function alerting(){
+alert('Element clicked through function!')
+}
+
+
 
 

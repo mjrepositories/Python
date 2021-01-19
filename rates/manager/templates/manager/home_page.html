@@ -1,0 +1,237 @@
+{% extends "manager/base.html" %}
+{%block content%}
+<div class="charting">
+    <canvas id="myChart_general" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_domains" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_air" class="canvas_b_ground"></canvas>
+</div>
+<div class="charting second_row">
+    <canvas id="myChart_fcl" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_lcl" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_road" class="canvas_b_ground"></canvas>
+</div>
+<script>
+    var ctx = document.getElementById('myChart_general').getContext('2d');
+        ctx.canvas.width = 500;
+        ctx.canvas.height = 300;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{dates|safe}},
+        datasets: [{
+        label: 'Line Dataset',
+            data: {{target|safe}},
+            type: 'line',
+            // this dataset is drawn on top
+            order: 2,
+            borderColor:'#327da8',
+            borderWidth:4,
+            borderDash: [4],
+            },
+            {
+            label: 'Coverage of rates in %',
+            backgroundColor: {{colors|safe}},
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{daily|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Coverage of rates in %'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    min:90   // minimum value will be 90.
+                }
+            }],
+        },
+        elements:{
+            point:{
+                   radius:0
+                   }
+
+        },
+    }
+});
+    var ctx_1 = document.getElementById('myChart_domains').getContext('2d');
+        ctx_1.canvas.width = 500;
+        ctx_1.canvas.height = 300;
+    // And for a doughnut chart
+    var myDoughnutChart = new Chart(ctx_1, {
+    type: 'doughnut',
+    data: {
+        labels: {{daily_pie_label|safe}},
+        datasets: [{
+        backgroundColor: [ /* backgroundColor is optional */
+            "#3498db",
+            "#f59342",
+            "#2ecc71",
+        ],
+        data: {{daily_pie|safe}}
+    }]
+    },
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Gaps per domain'
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+
+});
+
+var ctx_2 = document.getElementById('myChart_air').getContext('2d');
+        ctx_2.canvas.width = 500;
+        ctx_2.canvas.height = 300;
+    var chart = new Chart(ctx_2, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{air_carriers|safe}},
+        datasets: [
+            {
+            label: 'Missing AIR rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{air_numbers|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Missing AIR rates per carrier'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+});
+var ctx_3 = document.getElementById('myChart_fcl').getContext('2d');
+        ctx_3.canvas.width = 500;
+        ctx_3.canvas.height = 300;
+    var chart = new Chart(ctx_3, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{fcl_carriers|safe}},
+        datasets: [
+            {
+            label: 'Missing FCL rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{fcl_numbers|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Missing FCL rates per carrier'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+});
+var ctx_4 = document.getElementById('myChart_lcl').getContext('2d');
+        ctx_4.canvas.width = 500;
+        ctx_4.canvas.height = 300;
+    var chart = new Chart(ctx_4, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{lcl_carriers|safe}},
+        datasets: [
+            {
+            label: 'Missing LCL rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{lcl_numbers|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Missing LCL rates per carrier'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+});
+var ctx_5 = document.getElementById('myChart_road').getContext('2d');
+        ctx_5.canvas.width = 500;
+        ctx_5.canvas.height = 300;
+    var chart = new Chart(ctx_5, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{road_carriers|safe}},
+        datasets: [
+            {
+            label: 'Missing ROAD rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{road_numbers|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: 'Missing ROAD rates per carrier'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+});
+</script>
+{%endblock content%}

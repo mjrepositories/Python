@@ -1,0 +1,17 @@
+{% extends "betting_manager/base.html" %}
+{%load static%}
+{%block content%}
+    <div id="info_box">
+
+        <h4>Do you want to have some fun with World Cup?</h4>
+        <h4>If answer is YES...We have your back!</h4>
+        <img id="photo_manager" src="{% static 'betting_manager/images/Betting_Manager.png' %}">
+        <h3>Bet your matches, participate with friends and check how much luck you have</h3>
+        <h3>General rules</h3>
+        <ul style="list-style-type: none">
+            <li>If you bet correct result - you get 1 point</li>
+            <li>If you nailed the goals as well - 4 more points for you!</li>
+        </ul>
+        <h3>Now... Let's bet some games!</h3>
+     </div>
+{%endblock content%}

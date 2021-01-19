@@ -1,0 +1,43 @@
+{% extends "manager/base.html" %}
+{%block content%}
+<div class="flexbox">
+<div class="reporting_container">
+    <form action="" method="POST">
+    {%csrf_token%}
+
+        <label for="domain" style="writing-mode: vertical-rl">Domain</label>
+        <select class="filter_select" size="7" name="domain" id="domain" multiple>
+            <option value="ALL" selected="selected">ALL</option>
+            {%for domain,code in domains.items%}
+                <option value="{{code}}">{{domain}}</option>
+            {%endfor%}
+        </select>
+
+        <label for="carrier" style="writing-mode: vertical-rl">Carrier</label>
+        <select class="filter_select" size="7" name="carrier" id="carrier" multiple>
+            <option value="ALL" selected="selected">ALL</option>
+            {%for carrier in carriers%}
+                <option value="{{carrier}}">{{carrier}}</option>
+            {%endfor%}
+        </select>
+        <label for="pickup" style="writing-mode: vertical-rl">Pickup country</label>
+        <select class="filter_select" size="7" name="pickup" id="pickup" multiple>
+            <option value="ALL" selected="selected">ALL</option>
+            {%for pickup in pickups%}
+                <option value="{{pickup}}">{{pickup}}</option>
+            {%endfor%}
+        </select>
+            <label for="delivery" style="writing-mode: vertical-rl">Delivery country</label>
+          <select class="filter_select" size="7" name="delivery" id="delivery" multiple>
+              <option value="ALL" selected="selected">ALL</option>
+              {%for delivery in deliveries%}
+                <option value="{{delivery}}">{{delivery}}</option>
+              {%endfor%}
+          </select>
+<div class="flexbox">
+        <input type="submit" class="reporting_button" name="Submit" value="Generate report">
+    </div>
+    </form>
+</div>
+    </div>
+{%endblock content%}

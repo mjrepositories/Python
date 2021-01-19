@@ -1,0 +1,77 @@
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {%if not user.is_authenticated%}
+  <div class="setting_container">
+  <a class="menu_link" href="{% url 'login'%}">Log In</a>
+    </div>
+    {%endif%}
+    {%if user.is_authenticated%}
+    <div class="setting_container">
+  <a class="menu_link" href="{% url 'logout'%}">Log Out</a>
+    </div>
+    {%endif%}
+    {%if not user.is_authenticated%}
+  <div class="setting_container">
+  <a class="menu_link" href="{% url 'register'%}">Register</a>
+  </div>
+    {%endif%}
+    {%if user.is_authenticated%}
+  <div class="setting_container">
+  <a class="menu_link" href="{%url 'results'%}">Results</a>
+  </div>
+    {%endif%}
+    {%if user.is_authenticated%}
+<div class="setting_container">
+  <a class="menu_link" onclick="groupRoll()">Groups</a>
+  </div>
+    {%endif%}
+    {%if user.is_authenticated%}
+  <div id="groups">
+      <form action="/groups" method="POST">
+  <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='A'%}">Group A</a>
+    </div>
+  <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='B'%}">Group B</a>
+     </div>
+    <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='C'%}">Group C</a>
+       </div>
+      <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='D'%}">Group D</a>
+         </div>
+        <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='E'%}">Group E</a>
+           </div>
+          <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='F'%}">Group F</a>
+             </div>
+            <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='G'%}">Group G</a>
+               </div>
+              <div class="group_stage">
+    <a class="menu_link" href="{%url 'groups' group_value='H'%}">Group H</a>
+                 </div>
+      </form>
+    </div>
+    {%endif%}
+        <div class="setting_container">
+    <a class="menu_link" href="{% url 'sweet_16'%}">Sweet 16</a>
+       </div>
+
+        <div class="setting_container">
+    <a class="menu_link" href="{% url 'elite_8'%}">Elite 8</a>
+       </div>
+
+        <div class="setting_container">
+    <a class="menu_link" href="{% url 'final_4'%}">Final 4</a>
+       </div>
+
+ <div class="setting_container">
+    <a class="menu_link" href="{% url 'championship'%}">Championship</a>
+       </div>
+
+      <div class="setting_container">
+    <a class="menu_link" href="{% url 'about'%}">About Game</a>
+       </div>
+</div>

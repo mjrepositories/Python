@@ -1,0 +1,163 @@
+{% extends "manager/base.html" %}
+{%block content%}
+{{air_carriers}}
+{{air_numbers}}
+<div class="charting">
+    <canvas id="myChart_general" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_domains" class="canvas_b_ground"></canvas>
+</div>
+<div class="charting second_row">
+    <canvas id="myChart_pickup" class="canvas_b_ground"></canvas>
+    <canvas id="myChart_booker" class="canvas_b_ground"></canvas>
+
+</div>
+<script>
+var ctx = document.getElementById('myChart_general').getContext('2d');
+        ctx.canvas.width = 500;
+        ctx.canvas.height = 300;
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{carriers|safe}},
+        datasets: [
+            {
+            label: 'Missing AIR rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{numbers|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: '{{title_main|safe}}'
+        },
+        legend:{
+            display:false
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+              scales: {
+            xAxes: [{
+                ticks: {
+                    fontSize: 7
+                }
+            }]
+        }
+    }
+});
+    var ctx_1 = document.getElementById('myChart_domains').getContext('2d');
+        ctx_1.canvas.width = 500;
+        ctx_1.canvas.height = 300;
+    // And for a doughnut chart
+    var myDoughnutChart = new Chart(ctx_1, {
+    type: 'doughnut',
+    data: {
+        labels: {{domain|safe}},
+        datasets: [{
+        backgroundColor: {{coloring|safe}},
+        data: {{domain_stats|safe}}
+    }]
+    },
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: '{{title_pie|safe}}'
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+    }
+
+});
+var ctx_2 = document.getElementById('myChart_pickup').getContext('2d');
+        ctx_2.canvas.width = 500;
+        ctx_2.canvas.height = 300;
+    var chart = new Chart(ctx_2, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{country|safe}},
+        datasets: [
+            {
+            label: 'Missing ROAD rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{country_stats|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: '{{title_pick_up|safe}}'
+        },
+        legend:{
+            display:false,
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+            xAxes: [{
+                ticks: {
+                    fontSize: 7
+                }
+            }]
+    }
+    }
+});
+var ctx_3 = document.getElementById('myChart_booker').getContext('2d');
+        ctx_3.canvas.width = 500;
+        ctx_3.canvas.height = 300;
+    var chart = new Chart(ctx_3, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{booker|safe}},
+        datasets: [
+            {
+            label: 'Missing ROAD rates per carrier',
+            backgroundColor: "#3498db",
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{booker_stats|safe}},
+            order:1
+            }
+            ]
+    },
+
+    // Configuration options go here
+    options: {
+        title: {
+            display: true,
+            text: '{{title_booker|safe}}'
+        },
+        legend:{
+            display:false,
+        },
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+            xAxes: [{
+                ticks: {
+                    fontSize: 7
+                }
+            }]
+        }
+    }
+});
+</script>
+{%endblock content%}

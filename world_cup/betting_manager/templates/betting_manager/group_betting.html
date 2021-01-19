@@ -1,0 +1,113 @@
+{% extends "betting_manager/base.html" %}
+{%load static%}
+{%block content%}
+<table class="greenTable">
+<thead>
+<tr>
+<th>Team</th>
+    {% if not '/betting/GROUP' in request.path|stringformat:"s"%}
+    <th>Penalties</th>
+    {%endif%}
+<th>Goals</th>
+<th>Goals</th>
+    {% if not '/betting/F' in request.path|stringformat:"s"%}
+    <th>Penalties</th>
+    {%endif%}
+    <th>Team</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>{{match.team_one}}</td>
+        {% if not '/betting/GROUP' in request.path|stringformat:"s"%}
+    <td>
+        <select class="selecting_goals" name="penalties_team_one" id="penalties_team_one" onchange="selectPenaltiesOne()">
+    <option value=0>0</option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
+    <option value=10>10</option>
+        </select>
+    </td>
+    {%endif%}
+    <td>
+        <select class="selecting_goals" name="goals_team_one" id="goals_team_one" onchange="selectGoalsOne()">
+    <option value=0>0</option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
+    <option value=10>10</option>
+        </select>
+    </td>
+    <td>
+        <select class="selecting_goals" name="goals_team_two" id="goals_team_two" onchange="selectGoalsTwo()">
+    <option value=0>0</option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
+    <option value=10>10</option>
+        </select>
+    </td>
+            {% if not '/betting/GROUP' in request.path|stringformat:"s"%}
+    <td>
+        <select class="selecting_goals" name="penalties_team_one" id="penalties_team_two" onchange="selectPenaltiesTwo()">
+    <option value=0>0</option>
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+    <option value=4>4</option>
+    <option value=5>5</option>
+    <option value=6>6</option>
+    <option value=7>7</option>
+    <option value=8>8</option>
+    <option value=9>9</option>
+    <option value=10>10</option>
+        </select>
+    </td>
+    {%endif%}
+    <td>{{match.team_two}}</td>
+</tr>
+
+</tbody>
+</table>
+
+<br>
+
+
+
+
+
+
+
+
+
+    <form method="POST" action="">
+    {%csrf_token%}
+    <div id="form_with_data">
+        {{form}}
+    </div>
+           <div id="user_submit_bet">
+        <input type="submit" class="user_submit_bet" value="Bet your score" />
+    </div>
+    </form>
+
+
+{%endblock content%}

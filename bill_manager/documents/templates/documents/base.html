@@ -1,0 +1,17 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill manager</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'documents/images/dollar.ico'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/documents/css/main.css?{% now 'U' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+{%include 'documents/navbar.html'%}
+{% block content %}{% endblock %}
+</body>
+</html>

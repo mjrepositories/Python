@@ -18,5 +18,5 @@ urlpatterns = [
     path('service/<int:pk>/delete', views.ServiceDeleteView.as_view(), name='service-delete'),
     path('part_service',views.create_part_or_service,name = 'part-service'),
     path('billing',views.billing,name='billing'),
-    path('pdf',views.PDF_generation,name='pdf')
+    # path('pdf',views.PDF_generation,name='pdf')
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

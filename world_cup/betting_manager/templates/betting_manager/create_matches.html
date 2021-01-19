@@ -1,0 +1,74 @@
+{% extends "betting_manager/base.html" %}
+{%load static%}
+{%block content%}
+<div id="creation_container">
+ <label for="stage" >Select stage:</label>
+
+<select name="stage" id="stage" onchange="matchesCreation()">
+  <option value="none">------</option>
+  <option value="sixteen">1/16 Stage</option>
+  <option value="eight">Quarter-finals</option>
+  <option value="four">Semi-finals</option>
+  <option value="final">Final</option>
+</select>
+
+
+<div id="matches_wrapper_1">
+      <form method="POST">
+        {%csrf_token%}
+            <div id="sixteen">
+                {{sixteenform.management_form}}
+                {%for x_form in sixteenform%}
+                    <div class="sixteen_form">
+                        {{x_form.as_p}}
+                    </div>
+                {%endfor%}
+              </div>
+        <input type="submit" class="user_submit_match" name="Submit_16" value="Submit matches">
+    </form>
+</div>
+
+    <div id="matches_wrapper_2">
+        <form method="POST">
+        {%csrf_token%}
+            <div id="eight">
+                {{eightform.management_form}}
+                {%for e_form in eightform%}
+                       <div class="eight_form">
+                            {{e_form.as_p}}
+                        </div>
+                  {%endfor%}
+            </div>
+            <input type="submit" class="user_submit_match" name="Submit_8" value="Submit matches">
+        </form>
+    </div>
+
+    <div id="matches_wrapper_3">
+        <form method="POST">
+        {%csrf_token%}
+            {{fourform.management_form}}
+            <div id="four">
+                  {%for f_form in fourform%}
+                      <div class="four_form">
+                            {{f_form.as_p}}
+                      </div>
+                  {%endfor%}
+            </div>
+             <input type="submit" class="user_submit_match" name="Submit_4" value="Submit matches">
+        </form>
+    </div>
+
+    <div id="matches_wrapper_4">
+        <form method="POST">
+        {%csrf_token%}
+            {{finalform.management_form}}
+            <div id="final">
+              <div class="final_form">
+                {{finalform.as_p}}
+              </div>
+            </div>
+             <input type="submit" class="user_submit_match" name="Submit_final" value="Submit matches">
+        </form>
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,33 @@
+{% extends "manager/base.html" %}
+{%block content%}
+<div class="login_logout_container">
+    <form method="POST" action="">
+    {%csrf_token%}
+        <h2>Log in</h2>
+                <label>Type your username</label>
+                <input type="text" class="user_login"  placeholder="Username" name="username" value="" />
+                <label>Enter your password</label>
+                <input type="password" class="user_password" placeholder="Password" name="password" value="" />
+                <div id="user_submit">
+                <input type="submit" class="user_submit" value="Login" />
+                </div>
+
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <div class="alerting" role="alert">
+                Wrong username or password. Maybe some typo? Let's try again
+                </div>
+        {% endfor %}
+
+        {% endif %}
+
+            <div class="btn_help">
+                <a href="#" class="btn_help"  value="Login">Forgot Password?</a>
+            </div>
+
+            <div class="btn_help">
+                <a href="{% url 'register'%}" class="btn_help"  value="Login">Registration form</a>
+            </div>
+    </form>
+</div>
+{%endblock content%}

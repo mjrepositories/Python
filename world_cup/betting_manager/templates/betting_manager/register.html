@@ -1,0 +1,14 @@
+{% extends "betting_manager/base.html" %}
+{%load static%}
+{%load crispy_forms_tags%}
+{%block content%}
+<div id="login_input">
+    <form method="POST">
+    {%csrf_token%}
+    {{form|crispy}}
+    <br>
+        <h3 style="color:white;">Password needs at least 8 signs</h3>
+ <input type="submit" class="user_submit" name="Submit" value="Let's register">
+</form>
+</div>
+{%endblock content%}

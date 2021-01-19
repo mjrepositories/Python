@@ -1,0 +1,112 @@
+{% extends "documents/base.html" %}
+{%load static%}
+{% block content %}
+<div class="content">
+  <div class="table_box">
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Correct billing</th>
+      <th>Check physical document</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for bill in bills%}
+    <tr>
+      <td>{{bill.date|date:"d-m-Y"}}</td>
+      <td>{{bill.summary}}</td>
+      <td><a href="{%url 'update-cost'  group='energy' id=bill.id%}">Correct</a></td>
+      <td><a href="{{bill.image.url}}">Show bill</a></td>
+    </tr>
+  {%endfor%}
+
+  </tbody>
+</table>
+  </div>
+<div class="charts_box">
+  <div class="graph1">
+    <canvas id="myChart1"></canvas>
+  </div>
+
+  <div class="graph2">
+    <canvas id="myChart2"></canvas>
+  </div>
+</div>
+</div>
+<script>
+    var ctx = document.getElementById('myChart1').getContext('2d');
+        ctx.canvas.width = 20;
+        ctx.canvas.height = 400;
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{months|safe}},
+        datasets: [{
+            label: 'Monthly cost of electricity',
+            backgroundColor: 'rgb(25, 93, 12)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{costs|safe}}
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    'onClick' : function (evt, item) {
+                        console.log ('legend onClick', evt);
+                        console.log('legd item', item);
+                        let x = item[0]._index;
+                    },
+    }
+});
+</script>
+
+<script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+        ctx.canvas.width = 20;
+        ctx.canvas.height = 400;
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: {{months|safe}},
+        datasets: [{
+            label: 'Monthly consumption of electricity',
+            backgroundColor: 'rgb(25, 93, 12)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: {{consumption|safe}}
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      'onClick' : function (evt, item) {
+                          console.log ('legend onClick', evt);
+                          console.log('legd item', item);
+                          let x = item[0]._index;
+                      },
+      scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true   // minimum value will be 0.
+            }
+        }]
+      }
+
+    }
+});
+</script>
+
+
+{%endblock content%}

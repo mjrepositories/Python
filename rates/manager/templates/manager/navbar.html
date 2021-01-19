@@ -1,0 +1,39 @@
+<ul>
+    <li class="dropdown"><a class="active" href="{%url 'home_page'%}">Main Page</a>
+  <li class="dropdown"><a class="active" href="">FCL</a>
+  <div class="dropdown-content">
+     <a href="{% url 'shipments' t_type='FCL'%}">Check shipments</a>
+      <a href="{% url 'charts' t_type='FCL'%}">Charts</a>
+      <a href="{% url 'reporting' t_type='FCL'%}">Download overview</a>
+    </div></li>
+  <li class="dropdown"><a href="">LCL</a>
+  <div class="dropdown-content">
+      <a href="{% url 'shipments' t_type='LCL'%}">Check shipments</a>
+      <a href="{% url 'charts' t_type='LCL'%}">Charts</a>
+      <a href="{% url 'reporting' t_type='LCL'%}">Download overview</a>
+    </div></li>
+  <li class="dropdown"><a href="">AIR</a>
+  <div class="dropdown-content">
+      <a href="{% url 'shipments' t_type='AIR'%}">Check shipments</a>
+      <a href="{% url 'charts' t_type='AIR'%}">Charts</a>
+      <a href="{% url 'reporting' t_type='AIR'%}">Download overview</a>
+    </div></li>
+  <li class="dropdown"><a href="">ROAD EU</a>
+  <div class="dropdown-content">
+      <a href="{% url 'shipments' t_type='ROAD_EU'%}">Check shipments</a>
+      <a href="{% url 'charts' t_type='ROAD_EU'%}">Charts</a>
+      <a href="{% url 'reporting' t_type='ROAD_EU'%}">Download overview</a>
+    </div></li>
+    <li class="dropdown"><a href="">ROAD US</a>
+    <div class="dropdown-content">
+      <a href="{% url 'shipments' t_type='ROAD_US'%}">Check shipments</a>
+      <a href="{% url 'charts' t_type='ROAD_US'%}">Charts</a>
+        <a href="{% url 'reporting' t_type='ROAD_US'%}">Download overview</a>
+    </div></li>
+
+
+    <li class="dropdown right"><a href="{%url 'logout'%}">Logout</a></li>
+    <li class="dropdown right"><a href="{%url 'load_data'%}">Load data</a></li>
+    <li class="dropdown right"><a href="{%url 'register'%}">Register</a></li>
+    <li class="dropdown right"><a href="{%url 'login'%}">Login</a></li>
+</ul>

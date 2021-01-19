@@ -1,0 +1,125 @@
+{% extends "manager/base.html" %}
+{%load additional%}
+{%block content%}
+
+<table class="blueTable" id="shipmentTable">
+<thead>
+<tr>
+<th>Infodis</th>
+<th>Shipment</th>
+<th>Booker id</th>
+<th>Shipment Booker Name</th>
+<th>Shipper id</th>
+<th>Consignee id</th>
+<th>Pickup city</th>
+<th>Pickup country</th>
+<th>Port of loading</th>
+<th>Port of discharge</th>
+<th>Delivery city</th>
+<th>Delivery country</th>
+<th>Del terms</th>
+<th>Container number</th>
+<th>Bill of lading</th>
+<th>Pickup ZIP code</th>
+<th>HAWB</th>
+<th>Delivery ZIP code</th>
+<th>Booking date</th>
+<th>Leg 1 Pickup Planned</th>
+<th>Leg 1 Pickup Actual</th>
+<th>Leg 2 Pickup Planned</th>
+<th>Leg 2 Pickup Actual</th>
+<th>Leg 3 Delivery Actual</th>
+<th>Leg 1 Carrier Name</th>
+<th>Leg 2 Carrier Name</th>
+<th>Leg 3 Carrier Name</th>
+<th>Billable Indicator Leg 1</th>
+<th>Billable Indicator Leg 2</th>
+<th>Billable Indicator Leg 3</th>
+<th>Container type</th>
+<th>Leg 1 Transport Mode</th>
+<th>Leg 2 Transport Mode</th>
+<th>Leg 3 Transport Mode</th>
+<th>Domain Code</th>
+<th>Total costs Sales</th>
+<th>Leg 1, Total costs Purchase</th>
+<th>Leg 2, Total costs Purchase</th>
+<th>Leg 3, Total costs Purchase</th>
+<th>Pallets</th>
+<th>Weight</th>
+<th>Volume</th>
+<th>Action taken</th>
+<th>Pending/Solved</th>
+<th>Mail sent</th>
+<th>Date of email</th>
+<th>Email subject</th>
+<th>Delay in answer</th>
+<th>Comments</th>
+
+
+</tr>
+</thead>
+<tbody id="body_table">
+{%for transport in transports%}
+<tr>
+    <td><a href="{{transport.page}}">{{transport.infodis}}</a></td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.shipment|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.booker_id|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.shipment_booker_name|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.shipper_id|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.consignee_id|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.pickup_city|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.pickup_country|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.port_of_loading|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.port_of_discharge|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.delivery_city|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.delivery_country|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.del_terms|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.container_number|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.bill_of_lading|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.pickup_zip_code|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.hawb|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.delivery_zip_code|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.booking_date|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_1_pickup_planned|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_1_pickup_actual|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_2_pickup_planned|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_2_pickup_actual|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_3_delivery_actual|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_1_carrier_name|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_2_carrier_name|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_3_carrier_name|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.billable_indicator_leg_1|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.billable_indicator_leg_2|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.billable_indicator_leg_3|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.container_type|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_1_transport_mode|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_2_transport_mode|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_3_transport_mode|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.domain_code|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.total_costs_sales|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_1_total_costs_purchase|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_2_total_costs_purchase|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.leg_3_total_costs_purchase|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.pallets|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.weight|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.volume|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.action_taken|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.pending_solved|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.mail_sent|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.date_of_email|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.email_subject|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.delay_in_answer|default_if_none:""}}</td>
+    <td ondblclick="window.location ='notes/{{request.path|additional}}/{{transport.shipment}}'">{{transport.comments|default_if_none:""}}</td>
+
+
+</tr>
+{%endfor%}
+
+</tbody>
+
+</table>
+
+<button onclick="topFunction()" id="topBtn" title="Go to top">Go to table top</button>
+<button onclick="midFunction()" id="midBtn" title="Go to top">Go to table mid</button>
+<button onclick="endFunction()" id="endBtn" title="Go to top">Go to table end</button>
+{%endblock content%}

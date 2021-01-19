@@ -137,55 +137,55 @@ def billing(request):
 
 
 
-from django.http import HttpResponse
-from django.views.generic import View
-from .utils import render_to_pdf
-from django.template.loader import get_template
-
-class GeneratePdf(View):
-    def get(self, request, *args, **kwargs):
-        data = {
-             'today': '2020-09-20',
-             'amount': 39.99,
-            'customer_name': 'Cooper Mann',
-            'order_id': 1233434,
-        }
-        pdf = render_to_pdf('car/billing.html', data)
-        return HttpResponse(pdf, content_type='application/pdf')
-
-
-class GeneratePDF(View):
-    def get(self, request, *args, **kwargs):
-        template = get_template('car/billing.html')
-        context = {
-            "invoice_id": 123,
-            "customer_name": "John Cooper",
-            "amount": 1399.99,
-            "today": "Today",
-        }
-        html = template.render(context)
-        pdf = render_to_pdf('car/billing.html', context)
-        if pdf:
-            response = HttpResponse(pdf, content_type='application/pdf')
-            filename = "Invoice_%s.pdf" %("12341231")
-            content = "inline; filename='%s'" %(filename)
-            download = request.GET.get("download")
-            if download:
-                content = "attachment; filename='%s'" %(filename)
-            response['Content-Disposition'] = content
-            return response
-        return HttpResponse("Not found")
+# from django.http import HttpResponse
+# from django.views.generic import View
+# from .utils import render_to_pdf
+# from django.template.loader import get_template
+#
+# class GeneratePdf(View):
+#     def get(self, request, *args, **kwargs):
+#         data = {
+#              'today': '2020-09-20',
+#              'amount': 39.99,
+#             'customer_name': 'Cooper Mann',
+#             'order_id': 1233434,
+#         }
+#         pdf = render_to_pdf('car/billing.html', data)
+#         return HttpResponse(pdf, content_type='application/pdf')
 
 
+# class GeneratePDF(View):
+#     def get(self, request, *args, **kwargs):
+#         template = get_template('car/billing.html')
+#         context = {
+#             "invoice_id": 123,
+#             "customer_name": "John Cooper",
+#             "amount": 1399.99,
+#             "today": "Today",
+#         }
+#         html = template.render(context)
+#         pdf = render_to_pdf('car/billing.html', context)
+#         if pdf:
+#             response = HttpResponse(pdf, content_type='application/pdf')
+#             filename = "Invoice_%s.pdf" %("12341231")
+#             content = "inline; filename='%s'" %(filename)
+#             download = request.GET.get("download")
+#             if download:
+#                 content = "attachment; filename='%s'" %(filename)
+#             response['Content-Disposition'] = content
+#             return response
+#         return HttpResponse("Not found")
 
-import pdfkit
-def PDF_generation(request):
-    if 'repair_no_doc' in request.POST.keys():
-        # save session spot_id variable from POST
-        request.session['repair_id_doc'] = request.POST.get('repair_no_doc')
-        #  save session
-    request.session.save()
-    config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
-    pdfkit.from_url('http://localhost:8000/billing', r'C:\Users\310295192\Desktop\testing\SEAT.pdf',configuration=config)
-    return redirect('/panel')
 
+
+# import pdfkit
+# def PDF_generation(request):
+#     if 'repair_no_doc' in request.POST.keys():
+#         # save session spot_id variable from POST
+#         request.session['repair_id_doc'] = request.POST.get('repair_no_doc')
+#         #  save session
+#     request.session.save()
+#     config = pdfkit.configuration(wkhtmltopdf=r"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe")
+#     pdfkit.from_url('http://localhost:8000/billing', r'C:\Users\310295192\Desktop\testing\SEAT.pdf',configuration=config)
+#     return redirect('/panel')
+#

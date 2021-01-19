@@ -1,0 +1,44 @@
+{% extends "betting_manager/base.html" %}
+{% block content%}
+
+<table class="greenTableResult">
+<thead>
+<tr>
+<th>Team</th>
+    <th>Penalties bet</th>
+    <th>Goals bet</th>
+    <th>Penalties</th>
+<th>Goals</th>
+    <th>-</th>
+<th>Goals</th>
+    <th>Penalties</th>
+    <th>Goals bet</th>
+    <th>Penalties bet</th>
+<th>Team</th>
+</tr>
+</thead>
+<tbody>
+{%for match in matches%}
+<tr>
+    <td>{{match.match.team_one}}</td>
+    <td>{{match.penalties_team_one}}</td>
+    <td>{{match.goals_team_one}}</td>
+    <td>{{match.match.penalties_team_one}}</td>
+    <td>{{match.match.goals_team_one}}</td>
+    <td>
+        {%if 'NO' == match.match.played%}
+        <a href="{%url 'betting' match=match.match.id stage=match.match.stage%}">Bet</a>
+        {%endif%}
+    </td>
+    <td>{{match.match.goals_team_two}}</td>
+    <td>{{match.match.penalties_team_two}}</td>
+    <td>{{match.goals_team_two}}</td>
+    <td>{{match.penalties_team_two}}</td>
+     <td>{{match.match.team_two}}</td>
+</tr>
+{%endfor%}
+
+</tbody>
+</table>
+
+{%endblock content%}

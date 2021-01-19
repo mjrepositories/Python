@@ -1,0 +1,60 @@
+{% extends "betting_manager/base.html" %}
+{% block content%}
+<table class="greenTable">
+<thead>
+<tr>
+<th>Position</th>
+<th>Team</th>
+<th>Goals</th>
+    <th>Points</th>
+</tr>
+</thead>
+<tbody>
+{%for team,results in teams.items%}
+<tr>
+    <td>{{results.position}}</td>
+    <td>{{team}}</td>
+    <td>{{results.scored}}:{{results.lost}}</td>
+    <td>{{results.points}}</td>
+</tr>
+{%endfor%}
+
+</tbody>
+</table>
+
+<br>
+
+<table class="greenTableResult">
+<thead>
+<tr>
+<th>Team</th>
+    <th>Goals bet</th>
+<th>Goals</th>
+    <th>-</th>
+<th>Goals</th>
+    <th>Goals bet</th>
+<th>Team</th>
+</tr>
+</thead>
+<tbody>
+{%for match in matches%}
+<tr>
+    <td>{{match.match.team_one}}</td>
+    <td>{{match.goals_team_one}}</td>
+    <td>{{match.match.goals_team_one}}</td>
+    <td>
+        {%if 'NO' == match.match.played%}
+        <a href="{%url 'betting' match=match.match.id stage=match.match.stage%}">Bet</a>
+        {%endif%}
+    </td>
+    <td>{{match.match.goals_team_two}}</td>
+    <td>{{match.goals_team_two}}</td>
+     <td>{{match.match.team_two}}</td>
+</tr>
+{%endfor%}
+
+</tbody>
+</table>
+
+
+{%endblock content%}

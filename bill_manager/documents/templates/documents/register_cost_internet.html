@@ -1,0 +1,13 @@
+{% extends "documents/base.html" %}
+{% block content %}
+<div class="cost_form">
+    <form method="POST" enctype="multipart/form-data">
+            {%csrf_token%}
+            {{form}}
+    <br>
+    <div class="centering">
+        <input class="submit_cost" type="submit" name="submit_home" value="Submit cost">
+    </div>
+    </form>
+</div>
+{%endblock content%}

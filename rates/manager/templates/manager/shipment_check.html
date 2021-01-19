@@ -1,0 +1,20 @@
+{% extends "manager/base.html" %}
+{%block content%}
+
+
+<div class="form_notes">
+    <div class="inner_notes">
+        <form method="POST" action="">
+        {%csrf_token%}
+            <div id="form_with_data">
+                {{form.as_p}}
+            </div>
+            <div id="user_submit_notes">
+                <input type="submit" class="submitNotes" value="Save notes" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{%endblock content%}

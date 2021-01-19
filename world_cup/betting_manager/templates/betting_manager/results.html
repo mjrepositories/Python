@@ -1,0 +1,27 @@
+{% extends "betting_manager/base.html" %}
+{% block content%}
+<table class="greenTable">
+<thead>
+<tr>
+<th>Position</th>
+<th>Name</th>
+<th>Nailing score!</th>
+<th>Correct results</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+{%for player,details in players.items%}
+<tr>
+<td>{{details.position}}</td>
+<td>{{player}}</td>
+<td>{{details.nailing}}</td>
+<td>{{details.correct}}</td>
+<td>{{details.points}}</td>
+</tr>
+{%endfor%}
+</tbody>
+</table>
+
+
+{%endblock content%}

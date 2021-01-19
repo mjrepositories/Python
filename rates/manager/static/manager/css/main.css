@@ -1,0 +1,297 @@
+html{
+height:100%;
+}
+
+body{
+min-height:100%;
+font-family: 'Exo', sans-serif;
+margin:0;
+background-image: url(/static/manager/images/wal.jpg)   ;
+background-size:100%;
+
+background-repeat: no-repeat;
+background-attachment:fixed;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+li.right {
+  float:right;
+}
+
+.dropdown-content {
+  display: block;
+  position: fixed;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  height:0px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  overflow:hidden;
+  transition: 0.6s;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  background-color:#f1f1f1;
+}
+
+.dropdown-content a:hover {background-color: #c5cbd4;}
+
+.dropdown:hover .dropdown-content {
+  height: 135.4px;
+  }
+
+
+
+.filter_select{
+overflow:auto;
+}
+
+
+
+.reporting_button{
+    margin-top:10px;
+	box-shadow: 3px 4px 0px 0px #2c2e30;
+	background:linear-gradient(to bottom, #8f8f8f 5%, #3e3f40 100%);
+	background-color:#8f8f8f;
+	border-radius:5px;
+	border:1px solid #747a80;
+	display:block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #0b1621;
+}
+
+.reporting_button:hover{
+background:linear-gradient(to bottom, #3e3f40 5%, #8f8f8f 100%);
+	background-color:#3e3f40;
+}
+.reporting_button:active{
+	position:relative;
+	top:1px;
+}
+
+.reporting_container{
+display:inline-block;
+border: 5px outset #494B41;
+border-radius: 40px 0px 40px 0px;
+padding:20px;
+background: #587175;
+background: -moz-linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+background: -webkit-linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+background: linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+margin-top:10px;
+}
+
+.flexbox{
+display:flex;
+justify-content:center;
+}
+
+.form_notes{
+display:inline-block;
+margin:10px;
+border: 5px solid #333;
+border-radius: 8px;
+background-color:#797979;
+width:50%;
+}
+
+.inner_notes{
+padding:5px;
+}
+
+.inner_notes label{
+display:block;
+}
+
+.submitNotes {
+	box-shadow: 0px 10px 14px -7px #296b75;
+	background:linear-gradient(to bottom, #548a9e 5%, #408c99 100%);
+	background-color:#548a9e;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:10px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.submitNotes:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #548a9e 100%);
+	background-color:#408c99;
+}
+.submitNotes:active {
+	position:relative;
+	top:1px;
+}
+
+.inner_notes select{
+width:140px;
+text-align-last:center;
+}
+
+.inner_notes input[type=number]{
+width: 140px;
+  text-align:center;
+}
+
+.login_logout_container{
+color:white;
+display:inline-block;
+border: 5px outset #494B41;
+border-radius: 40px 0px 40px 0px;
+padding:20px;
+background: #587175;
+background: -moz-linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+background: -webkit-linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+background: linear-gradient(45deg, #587175 0%, #4A5359 50%, #7889B2 100%);
+margin-top:10px;
+margin-left:10px;
+}
+
+.login_logout_container label{
+display:block;
+}
+
+.login_logout_container input{
+display:block;
+}
+.login_logout_container .user_submit{
+    margin-top:10px;
+    margin-bottom: 10px;
+	box-shadow: 3px 4px 0px 0px #2c2e30;
+	background:linear-gradient(to bottom, #8f8f8f 5%, #3e3f40 100%);
+	background-color:#8f8f8f;
+	border-radius:5px;
+	border:1px solid #747a80;
+	display:block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #0b1621;
+}
+
+.login_logout_container .user_submit:hover{
+background:linear-gradient(to bottom, #3e3f40 5%, #8f8f8f 100%);
+	background-color:#3e3f40;
+}
+.login_logout_container .user_submit:active{
+	position:relative;
+	top:1px;
+}
+
+.login_logout_container label{
+margin:5px;
+}
+
+.login_logout_container a{
+text-decoration:none;
+color:white;
+
+}
+
+.login_logout_container a:hover{
+color:#b3bdb6;
+}
+
+.login_logout_container small{
+display:none;
+}
+
+.canvas_b_ground{
+background-color:white;
+}
+
+.charting{
+margin-top:5px;
+margin-bottom:5px;
+position:absolute;
+}
+
+.second_row{
+top:400px;
+}
+
+#myChart_general{
+left:0;
+position:absolute;
+}
+
+
+#myChart_domains{
+left:500px;
+position:absolute;
+margin-left:2px;
+}
+
+#myChart_air{
+left:1002px;
+position:absolute;
+margin-left:2px;
+}
+
+#myChart_lcl{
+left:500px;
+top:0px;
+position:absolute;
+margin-left:2px;
+}
+
+#myChart_road{
+left:1002px;
+top:0px;
+position:absolute;
+margin-left:2px;
+}
+
+#myChart_booker{
+left:500px;
+top:0px;
+position:absolute;
+margin-left:2px;
+}

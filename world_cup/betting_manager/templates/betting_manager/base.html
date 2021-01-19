@@ -1,0 +1,71 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+     <link rel="shortcut icon" type="image/png" href="{% static 'betting_manager/images/ball_nike.ico'%}">
+
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/main.css?{% now 'U' %}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    {% if '/results' == request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table.css?{% now 'U' %}">
+    {%endif%}
+
+    {% if '/groups' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table.css?{% now 'U' %}">
+    {%endif%}
+
+    {% if '/betting' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table.css?{% now 'U' %}">
+    {%endif%}
+
+    {% if '/sweet_16' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_sixteen.css?{% now 'U' %}">
+    {%endif%}
+
+       {% if '/elite_8' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_eight.css?{% now 'U' %}">
+    {%endif%}
+
+       {% if '/final_4' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_four.css?{% now 'U' %}">
+    {%endif%}
+
+       {% if '/championship' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_final.css?{% now 'U' %}">
+    {%endif%}
+
+    {%if 'betting/BEST16' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_penalties.css?{% now 'U' %}">
+    {% elif 'betting/QF' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_penalties.css?{% now 'U' %}">
+    {% elif 'betting/SF' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_penalties.css?{% now 'U' %}">
+    {% elif 'betting/F' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/betting_manager/css/table_penalties.css?{% now 'U' %}">
+    {%endif%}
+</head>
+<body style="background: url({% static 'betting_manager/images/football_pitch.jpeg' %});background-repeat: no-repeat;
+background-position: center; background-size:cover; background-attachment: fixed;">
+{%include 'betting_manager/navbar.html'%}
+<nav id="navigation-bar">
+    <span id="menu_bar" onclick="openNav()">&#9776; Menu</span>
+</nav>
+
+{% block content %}{% endblock %}
+
+  {% if '/betting' in request.path|stringformat:"s" %}
+    <script src="/static/betting_manager/js/betting.js?{% now 'U' %}"></script>
+    {%endif%}
+
+{% if '/create_matches' in request.path|stringformat:"s" %}
+    <script src="/static/betting_manager/js/creating_matches.js?{% now 'U' %}"></script>
+    {%endif%}
+<script src="{%  static 'betting_manager/js/side_menu.js' %}?ver=2"></script>
+</body>
+</html>

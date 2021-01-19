@@ -15,7 +15,6 @@ from .forms import OrderForm,CreateUserForm,CustomerForm
 
 # we are impoting filters
 from .filters import OrderFilter
-
 # we are importing the decorator we created
 from .decorators import unauthenticated_user,allowed_users,admin_only
 

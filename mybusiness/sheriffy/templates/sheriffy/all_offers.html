@@ -1,13 +1,15 @@
 {% extends "sheriffy/base.html" %}
 {%load static%}
 {% block content %}
-<div id="filtering" style="color:white;text-align:center;font-size:30px;">
-    <form method="GET">
-    {{filter.form.thing}}
-        <button type="submit">Search</button>
+<div id="filtering" style="color:white;text-align:center;font-size:30px;margin-top:30px;">
+    <form method="GET" id="getting">
+        <span>Item name </span>{{filter.form.naming}} <span>Zone </span>{{filter.form.zone}}
+        <span>City </span> {{filter.form.city_name}} <span>Category </span> {{filter.form.category}}
+        <button  id ="searching" type="submit" onclick="myFunction()">Search</button>
     </form>
+    <button  id ="clearing" onclick="myClearFunction()">Clear</button>
 </div>
-{%for offer,photo in looping_list%}
+{%for offer,photo in looping_qs%}
 <div class="item_shared">
     <div class="image_shared"><img id ='item_all_view' src="{{photo.image.url}}"></div>
     <div class="details_shared">
@@ -20,11 +22,7 @@
 </div>
 </div>
 {%endfor%}
-<div class="item_shared">
 
-</div>
-<div class="item_shared">
 
-</div>
-
+<script src="static/sheriffy/js/search.js?{% now 'U' %}"></script>
 {%endblock content%}

@@ -34,6 +34,9 @@
             <p class="card-text">
               Rzecz udostępnia:<br> <h4>{{item.owner.name}}</h4>
             </p>
+            <p class="card-text">
+              Lokacja:<br> <h4>{{item.city}}, {{item.zone}}</h4>
+            </p>
               <p class="card-text">
                 Telefon: <br> <h4>{{item.owner.phone}}</h4>
               </p>
@@ -43,6 +46,8 @@
     </div>
   </section>
  </div>
+
+
 <div style="position:absolute;top:400px;">
 {%for image in photos%}
 <div class="my-2">
@@ -57,5 +62,5 @@
 {%endfor%}
   </div>
 
-<script src="{%  static 'sheriffy/js/item_page.js' %}"></script>
+
 {%endblock content%}

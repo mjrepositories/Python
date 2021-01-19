@@ -15,6 +15,9 @@
     {% if '/details/' in request.path|stringformat:"s" %}
     <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/item_page.css?{% now 'U' %}">
     {%endif%}
+      {% if '/update' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/sheriffy/css/item_edit.css?{% now 'U' %}">
+    {%endif%}
 </head>
 <body>
 <div id="page-container">
@@ -42,5 +45,9 @@
 <!-- Footer -->
 
 </div>
+{% if '/details' in request.path|stringformat:"s" %}
+<script src="{%  static 'sheriffy/js/item_page.js' %}"></script>
+<script src="{%  static 'sheriffy/js/testing.js' %}"></script>
+{%endif%}
 </body>
 </html>

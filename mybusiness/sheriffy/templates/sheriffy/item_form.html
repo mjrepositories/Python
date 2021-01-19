@@ -1,31 +1,75 @@
 {% extends "sheriffy/base.html" %}
+{%load static%}
 {% block content %}
 <h1>Edit item details</h1>
 
-
-<form action="" method="POST">
+<div class="general_update">
+<form action="" method="POST" enctype="multipart/form-data">
+   <div class="updating_data">
     {%csrf_token%}
+    <h1 style="color:white;">Naming</h1>
+    {{form.thing}}
     <h1 style="color:white;">Description</h1>
-    <div contenteditable>
     {{form.description}}
-        </div>
     <h1 style="color:white;">Zone</h1>
     {{form.zone}}
+      <h1 style="color:white;">City</h1>
+    {{form.city}}
     <h1 style="color:white;">Category</h1>
 {{form.category}}
-        <h1 style="color:white;">Category</h1>
+        <h1 style="color:white;">State</h1>
 {{form.state}}
+    <br>
+        {{form.owner.as_hidden}}
+   </div>
+    <div class="updating_data">
+          <h1 style="color:white;">Status</h1>
+        {{form.status}}
+        <br>
+        <br>
+{{forming.management_form }}
+{{forming.as_p}}
 
-    <br>
-    <br>
+         <div class="container_image_button">
+    <button type="button" id="custom_button_0">Change main photo</button>
+    <span id="custom_text_0">No file chosen</span><span id="current_file_0">Current file</span><a id="basic_photo_0" href="">Check Main Photo</a>
+    </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_1">Add a photo</button>
+    <span id="custom_text_1">No file chosen</span><span id="current_file_1">Current file</span><a id="basic_photo_1" href="">Check photo</a>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_2">Add a photo</button>
+    <span id="custom_text_2">No file chosen</span><span id="current_file_2">Current file</span><a id="basic_photo_2" href="">Check photo</a>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_3">Add a photo</button>
+    <span id="custom_text_3">No file chosen</span><span id="current_file_3">Current file</span><a id="basic_photo_3" href="">Check photo</a>
+        </div>
+        <div class="container_image_button">
+        <button type="button" id="custom_button_4">Add a photo</button>
+    <span id="custom_text_4">No file chosen</span><span id="current_file_4">Current file</span><a id="basic_photo_4" href="">Check photo</a>
+        </div>
+        <div class="container_image_button">
+            <button type="button" id="custom_button_5">Add a photo</button>
+            <span id="custom_text_5">No file chosen</span><span id="current_file_5">Current file</span><a id="basic_photo_5" href="">Check photo</a>
+        </div>
+
+        <div class="container_image_button">
+            <button type="button" id="custom_button_6">Add a photo</button>
+            <span id="custom_text_6">No file chosen</span><span id="current_file_6">Current file</span><a id="basic_photo_6" href="">Check photo</a>
+        </div>
+
+        <div class="container_image_button">
+            <button type="button" id="custom_button_7">Add a photo</button>
+            <span id="custom_text_7">No file chosen</span><span id="current_file_7">Current file</span><a id="basic_photo_7" href="">Check photo</a>
+        </div>
+        </div>
+    <div id="submitting">
       <input type="submit" class="btn btn-info" name="Submit" value="Save changes">
+    </div>
 </form>
+</div>
 
-<script>
-    const el = document.querySelector('div[contenteditable]');
-
-// Get value from element on input events
-el.addEventListener('input', () => console.log(el.textContent));
-
-</script>
+<script src="{%  static 'sheriffy/js/correcting_form.js' %}"></script>
 {%endblock content%}

@@ -167,7 +167,7 @@ font-size:20px;
 
 #for_name{
 margin-bottom:10px;
-width:200px;
+width:333px;
 
 }
 
@@ -223,3 +223,64 @@ bottom:10px;
 width:200px;
 height:200px;
 }
+#searching{
+display: inline-block;
+  border-radius: 4px;
+  background-color: #3477eb;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#id_naming{
+color:white;
+background-color:black;
+border-radius: 10px;
+}
+
+#id_zone{
+color:white;
+background-color:black;
+}
+
+#id_category{
+color:white;
+background-color:black;
+}
+
+#id_city_name{
+color:white;
+background-color:black;
+border-radius: 10px;
+}
+
+#clearing{
+display: inline;
+  border-radius: 4px;
+  background-color: #fcba03;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#getting{
+display:inline;
+}
+
+.updating_data{
+width:50%;
+float:left;
+}
+

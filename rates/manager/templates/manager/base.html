@@ -1,0 +1,28 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'manager/images/logo.ico'%}">
+
+    <link rel="stylesheet" type="text/css" href="/static/manager/css/main.css?{% now 'U' %}">
+
+    {% if '/shipments' in request.path|stringformat:"s" %}
+    <link rel="stylesheet" type="text/css" href="/static/manager/css/table.css?{% now 'U' %}">
+    {%endif%}
+
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@1,500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+{%include 'manager/navbar.html'%}
+
+{% block content %}{% endblock %}
+{% if '/shipments' in request.path|stringformat:"s" %}
+    <script src="/static/manager/js/table_scroll.js?{% now 'U' %}"></script>
+    <script src="/static/manager/js/coloring.js?{% now 'U' %}"></script>
+    {%endif%}
+</body>
+</html>

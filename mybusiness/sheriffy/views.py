@@ -124,6 +124,7 @@ class ItemDeleteView(DeleteView):
 
 # class based view for updating offer
 class ItemUpdateView(UpdateView):
+
     # model used
     model = Item
     # fields that can be updated
@@ -137,6 +138,53 @@ class ItemUpdateView(UpdateView):
         form = super(ItemUpdateView, self).get_form()
         form.fields['description'].widget = forms.Textarea(attrs={'wrap':'hard'})
         return form
+
+
+    def get_context_data(self, *args, **kwargs):
+        # creating context
+        context = super(ItemUpdateView, self).get_context_data(*args, **kwargs)
+        id_for_item = self.request.get_full_path().split('/')
+        item_id = int(id_for_item[2])
+        item = Item.objects.get(pk=item_id)
+        photos = item.image_set.all()
+        ItemFormSet = inlineformset_factory(Item, Image, fields=('image',), extra=8)
+        formset = ItemFormSet(queryset=photos)
+
+        context['photos'] = photos
+        context['forming'] = formset
+        print(photos)
+        print(formset)
+        return context
+
+
+def Updating(request,pk):
+    item = Item.objects.get(pk=pk)
+    form = ItemForm(instance=item)
+    photos = item.image_set.all()
+
+    ItemFormSet = inlineformset_factory(Item, Image, fields=('image',), extra=8-len(photos))
+    print(request.path)
+    formset = ItemFormSet(instance=item)
+    if request.method == 'POST':
+        print(request.POST)
+        form = ItemForm(request.POST,instance=item)
+        formset = ItemFormSet(request.POST, request.FILES, instance=item)
+        if form.is_valid() and formset.is_valid():
+            form.save()
+            print(item)
+            print(formset)
+            formset.save()
+            return redirect('/offers')
+        else:
+            print(form.errors)
+            print(formset.errors)
+
+
+
+
+
+    context ={'form': form,'forming':formset}
+    return render(request,'sheriffy/item_form.html',context)
 
 def Details(request,pk):
     item = Item.objects.get(pk=pk)
@@ -171,5 +219,25 @@ def AllItems(request):
     item_filter = ItemFilter(request.GET, queryset=offers)
 
 
-    context = {'looping_list':looping_list,'filter':item_filter}
+
+    offers = Item.objects.filter(id__in=item_filter.qs)
+
+    photos = Image.objects.filter(item__id__in=offers)
+    to_exclude = []
+    full_list = []
+    for counter, image in enumerate(photos):
+        full_list.append(image.id)
+        print(image.id)
+        print(image.item.id)
+        print(photos[counter].item.id)
+        if counter != 0:
+            if image.item.id == photos[counter - 1].item.id:
+                print('i am here')
+                to_exclude.append(image.id)
+    img_to_show = [x for x in full_list if x not in to_exclude]
+    filtered_photos = photos.filter(id__in=img_to_show)
+
+    looping_qs = zip(item_filter.qs,filtered_photos)
+
+    context = {'looping_list':looping_list,'filter':item_filter,'looping_qs':looping_qs}
     return render(request,'sheriffy/all_offers.html',context)
