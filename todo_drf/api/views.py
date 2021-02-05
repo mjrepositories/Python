@@ -21,8 +21,8 @@ def apiOverview(request):
 # below is enabling us to get full database information for all objects for specific model
 @api_view(['GET'])
 def taskList(request):
-    # quering the model to get all objects
-    tasks = Task.objects.all()
+    # quering the model to get all objects + order by id descending
+    tasks = Task.objects.all().order_by('-id')
     # serializing the data to get many tasks
     serializer = TaskSerializer(tasks,many=True)
     # return a resepone with serialized data
