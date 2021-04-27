@@ -1,0 +1,18 @@
+  const getPeriods = async () => {
+    const response = await fetch(
+      "http://localhost:8000/api/report_tracker/get-periods"
+    );
+    periodsList = await response.json();
+    setReportingPeriods(periodsList);
+  };
+
+
+
+   const handleDating = (e) => {
+    const naming = "executed_on";
+    const value = e.target.value;
+    setReportUpdated({
+      ...reportUpdated,
+      [naming]: value === "" ? null : value,
+    });
+  };

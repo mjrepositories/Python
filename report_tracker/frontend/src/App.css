@@ -1,0 +1,12 @@
+body {
+  background: #cecb4b;
+  background: -moz-linear-gradient(left, #cecb4b 0%, #c19610 50%, #c59237 100%);
+  background: -webkit-linear-gradient(
+    left,
+    #cecb4b 0%,
+    #c19610 50%,
+    #c59237 100%
+  );
+  background: linear-gradient(to right, #cecb4b 0%, #c19610 50%, #c59237 100%);
+  color: white;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- declaring a container and canvaas for a grap -->
+    <div class="container">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+      // we first need to find the element and then get Context 2d out of it
+      let myChart = document.getElementById("myChart").getContext("2d");
+
+      //   specifying what should be the chart
+      // so we create object with myChart element and we specify what we want there
+      let massPopChart = new Chart(myChart, {
+        type: "bar", // there could be some different types
+        data: {
+          labels: ["Warszawa", "Kraków", "Łódź", "Poznań", "Wrocław", "Gdańsk"],
+          datasets: [
+            {
+              label: "Populacja",
+              data: [1532654, 942532, 764245, 675497, 654987, 543234],
+              backgroundColor: [
+                "green",
+                "yellow",
+                "blue",
+                "red",
+                "orange",
+                "gray",
+              ],
+              //   we can specify different properities for the graph
+              borderWidth: 2,
+              borderColor: "purple",
+              hoverBorderWidth: 3,
+              hoverBorderColor: "pink",
+            },
+          ],
+        }, // object of data
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Największe miasta w Polsce",
+            },
+          },
+          legend: {
+            position: "right",
+          },
+        }, //object of options
+      });
+    </script>
+  </body>
+</html>

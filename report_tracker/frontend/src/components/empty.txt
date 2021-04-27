@@ -1,0 +1,8 @@
+  // const getReports = async () => {
+  //   const response = await fetch(
+  //     "http://localhost:8000/api/report_tracker/all-statuses"
+  //   );
+  //   const reporting = await response.json();
+  //   console.log(reporting);
+  //   setReports(["maciej", "adam"]);
+  // };
