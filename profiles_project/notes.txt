@@ -1,0 +1,8 @@
+APIView  Describes logic to make API endpoint
+An APIView enables us to match standard http methods like PUT, UPDATE,CREATE,DELETE
+
+When to use APIView
+Full control over API logic
+processing files and rendering a synchronous response
+calling other APIs
+accessing local files or data
